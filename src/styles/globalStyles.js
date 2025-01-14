@@ -60,8 +60,8 @@ const GlobalStyles = createGlobalStyle`
 		border-spacing: 0;
 	}
 	html {
-		font-size: 62.5%;
-		font-family: 'Moneygraphy';
+		font-size: 50%;
+		font-family: 'Moneygraphy', sans-serif;
 		overflow-x: hidden;
 	}
 	img {
@@ -72,6 +72,18 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration: none;
 		color: inherit;
 	}
+
+  @media (min-width: 1300px) {
+    html {
+      font-size: 62.5%;
+    }
+  }
+
+	@media (min-width: 1680px) {
+    html {
+      font-size: 80%;
+    }
+  }
 `
 
 export default GlobalStyles

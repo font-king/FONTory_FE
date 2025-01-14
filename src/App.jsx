@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { SideNavbar } from './components/views/SideNavbar'
 import { colors } from './styles/palette'
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
       </Header>
 
       <Main>
-        <div>1</div>
-        <div>2</div>
+        <SideNavbar />
+        <div style={{ height: '200vh' }}></div>
         <div>3</div>
       </Main>
     </Container>
@@ -43,7 +44,7 @@ const Main = styled.main`
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  gap: 0.8rem;
+  gap: 1.6rem;
   overflow: hidden;
   padding: 0.8rem;
 `

@@ -62,6 +62,7 @@ const Container = styled.nav`
 
 const NavItemContainer = styled(Link)`
   display: flex;
+  align-items: center;
   gap: 2rem;
   border-radius: 2rem;
   padding: 1.6rem 1.2rem;

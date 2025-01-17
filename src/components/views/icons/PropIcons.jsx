@@ -77,13 +77,14 @@ export const UnfilledBookmarkIcon = ({ size }) => {
   )
 }
 
-export const SquareCheckIcon = ({ isActive }) => {
+export const SquareCheckIcon = ({ isActive, size }) => {
   const activeColor = (isActive) => (isActive ? colors.blue[500] : '#9E9E9E')
+  const sizeRem = size === 'lg' ? '3.6rem' : '3.2rem'
 
   return (
     <svg
-      width="3.2rem"
-      height="3.2rem"
+      width={sizeRem}
+      height={sizeRem}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

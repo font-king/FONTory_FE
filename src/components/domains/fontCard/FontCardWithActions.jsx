@@ -36,16 +36,16 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
 
 const FontCardContainer = styled.div`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
+  ${({ theme }) => theme.borderRadius('md')};
   padding: 1.6rem 1.2rem 1rem;
   border: 1px solid ${colors.grey[300]};
-  border-radius: 0.8rem;
   background: white;
 
   .profile {
+    ${({ theme }) => theme.borderRadius('full')};
     width: 5.6rem;
     height: 5.6rem;
     border: 1px solid grey;
-    border-radius: 100%;
   }
 `
 

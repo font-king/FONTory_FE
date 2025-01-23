@@ -7,17 +7,17 @@ import { ArrowRightIcon } from './icons/PropIcons'
 const SIZE_STYLES = {
   lg: {
     padding: '2rem 1.8rem',
-    rounded: '2rem',
+    rounded: 'xl',
     font: 500,
   },
   md: {
     padding: '1.4rem 1.6rem',
-    rounded: '1.6rem',
+    rounded: 'lg',
     font: 700,
   },
   sm: {
     padding: '1rem 1.4rem',
-    rounded: '1.2rem',
+    rounded: 'md',
     font: 800,
   },
 }
@@ -43,9 +43,9 @@ export const Button = ({
 
 const BasicButton = styled.button`
   ${({ theme, size }) => theme.font(SIZE_STYLES[size].font, 'white')};
+  ${({ theme, size }) => theme.borderRadius(SIZE_STYLES[size].rounded)};
   display: ${({ $withArrow }) => ($withArrow ? 'flex' : 'inline-block')};
   gap: ${({ $withArrow }) => $withArrow && '1.2rem'};
-  border-radius: ${({ size }) => SIZE_STYLES[size].rounded};
   padding: ${({ size }) => SIZE_STYLES[size].padding};
   transition: background-color 0.3s ease;
 `

@@ -37,7 +37,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
 const FontCardContainer = styled.div`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
   ${({ theme }) => theme.borderRadius('md')};
-  padding: 1.6rem 1.2rem 1rem;
+  ${({ theme }) => theme.padding('lg', 'md', 'sm')};
   border: 1px solid ${colors.grey[300]};
   background: white;
 

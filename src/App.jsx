@@ -47,8 +47,8 @@ const Container = styled.div`
 `
 
 const Header = styled.header`
+  ${({ theme }) => theme.padding('4xl')};
   background: white;
-  padding: 3.2rem;
 
   .logo {
     font-family: 'Jalnan';
@@ -58,9 +58,9 @@ const Header = styled.header`
 
 const Main = styled.main`
   ${({ theme }) => theme.gridBox('1fr 4fr 1fr', undefined, undefined, undefined, 'md')};
+  ${({ theme }) => theme.padding('sm')};
   flex-grow: 1;
   overflow: hidden;
-  padding: 0.8rem;
 `
 
 const Test = styled.div`

@@ -3,7 +3,6 @@ import { useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
 
 import { InputGroupContext } from '@/hooks/useInputGroupContext'
-import { font } from '@/styles/font'
 import { colors } from '@/styles/palette'
 
 export const Label = ({ successMessage, errorMessage, label }) => {
@@ -33,13 +32,9 @@ const LabelContainer = styled.div`
 `
 
 const LabelMessage = styled.p`
-  font-size: ${font.fontSize[400]};
-  line-height: ${font.lineHeight[400]};
-  color: ${colors.blue[500]};
+  ${({ theme }) => theme.font(400, theme.colors.blue[500])};
 `
 
 const Message = styled.p`
-  font-size: ${font.fontSize[500]};
-  line-height: ${font.lineHeight[500]};
-  color: ${({ $success }) => ($success ? colors.ect.success : colors.ect.error)};
+  ${({ theme, $success }) => theme.font(500, $success ? colors.ect.success : colors.ect.error)}
 `

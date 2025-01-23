@@ -16,8 +16,8 @@ function App() {
   return (
     <Container>
       <Header>
-        <h1>
-          <Link to={`/`}>FONTory</Link>
+        <h1 className="logo">
+          <Link to={`/`}>FonTory</Link>
         </h1>
       </Header>
 
@@ -50,10 +50,9 @@ const Header = styled.header`
   background: white;
   padding: 3.2rem;
 
-  & > h1 {
+  .logo {
     font-family: 'Jalnan';
-    font-size: 3.6rem;
-    color: ${colors.blue[500]};
+    ${({ theme }) => theme.font(200, theme.colors.blue[500])};
   }
 `
 

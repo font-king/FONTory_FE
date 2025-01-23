@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
-import { font } from '@/styles/font'
 import { colors } from '@/styles/palette'
 
 export const FontCardWithActions = ({ font, onDownload, onSave }) => {
@@ -59,19 +58,14 @@ const FontInfo = styled.div`
 `
 
 const FontName = styled.h6`
-  font-size: ${font.fontSize[400]};
-  line-height: ${font.lineHeight[400]};
+  ${({ theme }) => theme.font(400)};
 `
 
 const DesignerName = styled.p`
-  font-size: ${font.fontSize[800]};
-  line-height: ${font.lineHeight[800]};
-  color: ${colors.grey[600]};
+  ${({ theme }) => theme.font(800, theme.colors.grey[600])};
 `
 
 const PreviewText = styled.p`
+  ${({ theme }) => theme.font(500, theme.colors.grey[600])};
   min-height: 10.8rem;
-  font-size: ${font.fontSize[500]};
-  line-height: ${font.lineHeight[500]};
-  color: ${colors.grey[600]};
 `

@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
-import { font } from '@/styles/font'
-import { colors } from '@/styles/palette'
 
 export const FontCardWithActions = ({ font, onDownload, onSave }) => {
   console.log(font)
@@ -36,48 +34,37 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
 }
 
 const FontCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.8rem;
-  padding: 1.6rem 1.2rem 1rem;
-  border: 1px solid ${colors.grey[300]};
-  border-radius: 0.8rem;
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
+  ${({ theme }) => theme.borderRadius('md')};
+  ${({ theme }) => theme.padding('lg', 'md', 'sm')};
+  ${({ theme }) => theme.border('divider')};
   background: white;
 
   .profile {
+    ${({ theme }) => theme.borderRadius('full')};
+    ${({ theme }) => theme.border('divider')};
     width: 5.6rem;
     height: 5.6rem;
-    border: 1px solid grey;
-    border-radius: 100%;
   }
 `
 
 const ProfileSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'md')};
 `
 
 const FontInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xs')};
 `
 
 const FontName = styled.h6`
-  font-size: ${font.fontSize[400]};
-  line-height: ${font.lineHeight[400]};
+  ${({ theme }) => theme.font(400)};
 `
 
 const DesignerName = styled.p`
-  font-size: ${font.fontSize[800]};
-  line-height: ${font.lineHeight[800]};
-  color: ${colors.grey[600]};
+  ${({ theme }) => theme.font(800, theme.colors.grey[600])};
 `
 
 const PreviewText = styled.p`
+  ${({ theme }) => theme.font(500, theme.colors.grey[600])};
   min-height: 10.8rem;
-  font-size: ${font.fontSize[500]};
-  line-height: ${font.lineHeight[500]};
-  color: ${colors.grey[600]};
 `

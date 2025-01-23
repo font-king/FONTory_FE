@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { colors } from './palette'
+
 const GlobalStyles = createGlobalStyle`
 	@font-face {
 		font-family: Moneygraphy;
@@ -71,6 +73,31 @@ const GlobalStyles = createGlobalStyle`
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+	button {
+		font: inherit;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	input, textarea {
+		font: inherit;
+		border: none;
+		outline: none;
+		
+		&:focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: ${colors.grey[500]};
+		}
+	}
+
+	textarea {
+		resize: none;
 	}
 
   @media (min-width: 1300px) {

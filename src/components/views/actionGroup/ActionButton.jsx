@@ -2,8 +2,6 @@ import { useContext } from 'react'
 import styled from 'styled-components'
 
 import { ActionGroupContext } from '@/hooks/useActionGroupContext'
-import { font } from '@/styles/font'
-import { colors } from '@/styles/palette'
 
 import { SquareCloseIcon, TrashIcon, WrenchIcon } from '../icons/NonPropIcons'
 import {
@@ -76,16 +74,8 @@ export const Complete = (props) => {
 }
 
 const ButtonContainer = styled.button`
-  display: flex;
-  align-items: center;
-  gap: ${({ size }) => (size === 'sm' ? '0.4rem' : '0.8rem')};
-  padding-top: ${({ size }) => (size === 'sm' ? '0.8rem' : '1.6rem')};
+  ${({ theme, size }) => theme.flexBox('row', 'center', undefined, size === 'sm' ? 'xs' : 'md')};
+  ${({ theme, size }) => theme.font(size === 'sm' ? 900 : 500, theme.colors.grey[600])};
+  ${({ theme, size }) => theme.padding(size === 'sm' ? 'sm' : 'lg', 0, 0)};
   background: white;
-  outline: none;
-  border: none;
-  font: inherit;
-  color: ${colors.grey[600]};
-  font-size: ${({ size }) => (size === 'sm' ? font.fontSize[900] : font.fontSize[500])};
-  line-height: ${({ size }) => (size === 'sm' ? font.lineHeight[900] : font.lineHeight[500])};
-  cursor: pointer;
 `

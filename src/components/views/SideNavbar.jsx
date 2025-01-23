@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { font } from '@/styles/font'
 import { colors } from '@/styles/palette'
 
 import {
@@ -29,7 +28,7 @@ const NavItem = memo(({ item, isActive }) => {
       <div>
         <item.Icon isActive={isActive} />
       </div>
-      <NavItemLabel>{item.label}</NavItemLabel>
+      <p className="nav-item-label">{item.label}</p>
     </NavItemContainer>
   )
 })
@@ -49,28 +48,21 @@ export const SideNavbar = () => {
 }
 
 const Container = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3.2rem;
+  ${({ theme }) => theme.flexBox('column', undefined, 'center', 'xxxl')};
+  ${({ theme }) => theme.borderRadius('container')};
+  ${({ theme }) => theme.padding('lg')};
   height: fit-content;
-  border-radius: 2rem;
   background-color: ${colors.blue[500]};
-  padding: 1.6rem;
   box-shadow: 0px 6px 15px -2px rgba(16, 24, 40, 0.08);
 `
 
 const NavItemContainer = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  border-radius: 2rem;
-  padding: 1.6rem 1.2rem;
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'lg')};
+  ${({ theme }) => theme.borderRadius('container')};
+  ${({ theme }) => theme.padding('lg', 'md')};
   background: ${({ $isActive }) => ($isActive ? '#fff' : colors.blue[500])};
-  color: ${({ $isActive }) => ($isActive ? colors.blue[500] : '#fff')};
-`
 
-const NavItemLabel = styled.span`
-  font-size: ${font.fontSize[500]};
-  line-height: ${font.lineHeight[500]};
+  .nav-item-label {
+    ${({ theme, $isActive }) => theme.font(500, $isActive ? colors.blue[500] : '#fff')};
+  }
 `

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { ActionGroupContext } from '@/hooks/useActionGroupContext'
-import { colors } from '@/styles/palette'
 
 import { Cancel, Complete, Delete, Download, Edit, Save } from './ActionButton'
 
@@ -23,8 +22,7 @@ export const ActionGroup = Object.assign(ActionGroupProvider, {
 })
 
 const GroupContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  ${({ theme }) => theme.flexBox('row', undefined, 'space-around')};
+  ${({ theme }) => theme.border('divider', 'top')};
   background: white;
-  border-top: 0.1rem solid ${colors.grey[300]};
 `

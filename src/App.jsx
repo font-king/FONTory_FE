@@ -16,8 +16,8 @@ function App() {
   return (
     <Container>
       <Header>
-        <h1>
-          <Link to={`/`}>FONTory</Link>
+        <h1 className="logo">
+          <Link to={`/`}>FonTory</Link>
         </h1>
       </Header>
 
@@ -41,37 +41,31 @@ function App() {
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexBox('column')};
   min-height: 100vh;
   background: ${colors.grey[200]};
 `
 
 const Header = styled.header`
+  ${({ theme }) => theme.padding('4xl')};
   background: white;
-  padding: 3.2rem;
 
-  & > h1 {
+  .logo {
     font-family: 'Jalnan';
-    font-size: 3.6rem;
-    color: ${colors.blue[500]};
+    ${({ theme }) => theme.font(200, theme.colors.blue[500])};
   }
 `
 
 const Main = styled.main`
+  ${({ theme }) => theme.gridBox('1fr 4fr 1fr', undefined, undefined, undefined, 'md')};
+  ${({ theme }) => theme.padding('sm')};
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  gap: 1.6rem;
   overflow: hidden;
-  padding: 0.8rem;
 `
 
 const Test = styled.div`
+  ${({ theme }) => theme.gridBox('1fr 1fr 1fr', undefined, undefined, undefined, 'sm')};
   background: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
   padding: 30px;
 `
 

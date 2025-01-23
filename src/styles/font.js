@@ -22,7 +22,8 @@ const lineHeight = {
   900: '1.8rem',
 }
 
-export const font = {
-  fontSize,
-  lineHeight,
-}
+export const font = (size, color = 'inherit') => `
+    font-size: ${fontSize[size]};
+    line-height: ${lineHeight[size]};
+    color: ${color}
+`

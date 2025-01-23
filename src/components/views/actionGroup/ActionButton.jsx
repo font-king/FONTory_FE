@@ -76,16 +76,10 @@ export const Complete = (props) => {
 }
 
 const ButtonContainer = styled.button`
-  display: flex;
-  align-items: center;
-  gap: ${({ size }) => (size === 'sm' ? '0.4rem' : '0.8rem')};
+  ${({ theme, size }) => theme.flexBox('row', 'center', undefined, size === 'sm' ? 'xs' : 'md')};
   padding-top: ${({ size }) => (size === 'sm' ? '0.8rem' : '1.6rem')};
   background: white;
-  outline: none;
-  border: none;
-  font: inherit;
   color: ${colors.grey[600]};
   font-size: ${({ size }) => (size === 'sm' ? font.fontSize[900] : font.fontSize[500])};
   line-height: ${({ size }) => (size === 'sm' ? font.lineHeight[900] : font.lineHeight[500])};
-  cursor: pointer;
 `

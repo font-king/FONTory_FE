@@ -49,8 +49,6 @@ const BasicButton = styled.button`
   color: white;
   display: ${({ $withArrow }) => ($withArrow ? 'flex' : 'inline-block')};
   gap: ${({ $withArrow }) => $withArrow && '1.2rem'};
-  border: none;
-  outline: none;
   border-radius: ${({ size }) => SIZE_STYLES[size].rounded};
   padding: ${({ size }) => SIZE_STYLES[size].padding};
   font-size: ${({ size }) => SIZE_STYLES[size].fontSize};

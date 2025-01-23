@@ -21,8 +21,6 @@ export const InputGroup = Object.assign(InputGroupProvider, {
 })
 
 const GroupSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'sm')};
   width: 100%;
 `

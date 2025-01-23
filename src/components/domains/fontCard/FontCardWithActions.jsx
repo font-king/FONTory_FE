@@ -36,9 +36,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
 }
 
 const FontCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.8rem;
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
   padding: 1.6rem 1.2rem 1rem;
   border: 1px solid ${colors.grey[300]};
   border-radius: 0.8rem;
@@ -53,15 +51,11 @@ const FontCardContainer = styled.div`
 `
 
 const ProfileSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'md')};
 `
 
 const FontInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xs')};
 `
 
 const FontName = styled.h6`

@@ -29,9 +29,7 @@ export const Label = ({ successMessage, errorMessage, label }) => {
 }
 
 const LabelContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'sm')};
 `
 
 const LabelMessage = styled.p`

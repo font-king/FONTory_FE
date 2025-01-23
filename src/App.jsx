@@ -41,8 +41,7 @@ function App() {
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.flexBox('column')};
   min-height: 100vh;
   background: ${colors.grey[200]};
 `

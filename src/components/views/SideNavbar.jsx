@@ -49,10 +49,7 @@ export const SideNavbar = () => {
 }
 
 const Container = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3.2rem;
+  ${({ theme }) => theme.flexBox('column', undefined, 'center', 'xxxl')};
   height: fit-content;
   border-radius: 2rem;
   background-color: ${colors.blue[500]};
@@ -61,9 +58,7 @@ const Container = styled.nav`
 `
 
 const NavItemContainer = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'lg')};
   border-radius: 2rem;
   padding: 1.6rem 1.2rem;
   background: ${({ $isActive }) => ($isActive ? '#fff' : colors.blue[500])};

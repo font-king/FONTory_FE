@@ -23,8 +23,7 @@ export const ActionGroup = Object.assign(ActionGroupProvider, {
 })
 
 const GroupContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  ${({ theme }) => theme.flexBox('row', undefined, 'space-around')};
   background: white;
   border-top: 0.1rem solid ${colors.grey[300]};
 `

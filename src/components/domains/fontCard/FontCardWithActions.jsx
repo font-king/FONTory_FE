@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
-import { colors } from '@/styles/palette'
 
 export const FontCardWithActions = ({ font, onDownload, onSave }) => {
   console.log(font)
@@ -38,14 +37,14 @@ const FontCardContainer = styled.div`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
   ${({ theme }) => theme.borderRadius('md')};
   ${({ theme }) => theme.padding('lg', 'md', 'sm')};
-  border: 1px solid ${colors.grey[300]};
+  ${({ theme }) => theme.border('divider')};
   background: white;
 
   .profile {
     ${({ theme }) => theme.borderRadius('full')};
+    ${({ theme }) => theme.border('divider')};
     width: 5.6rem;
     height: 5.6rem;
-    border: 1px solid grey;
   }
 `
 

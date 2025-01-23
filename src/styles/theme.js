@@ -1,4 +1,4 @@
-import { borderRadius, margin, padding } from './box'
+import { border, borderRadius, margin, padding } from './box'
 import { flexBox } from './flex'
 import { font } from './font'
 import { gridBox } from './grid'
@@ -12,6 +12,7 @@ const theme = {
   borderRadius,
   margin,
   padding,
+  border,
 }
 
 export default theme

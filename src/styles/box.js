@@ -1,3 +1,5 @@
+import { colors } from './palette'
+
 const borderRadiusSize = {
   0: '0',
   sm: '0.8rem',
@@ -17,6 +19,12 @@ const gapSize = {
   '2xl': '2.4rem',
   '3xl': '2.8rem',
   '4xl': '3.2rem',
+}
+
+const borderSize = {
+  0: 'none',
+  divider: `0.1rem solid ${colors.grey[300]}`,
+  input: `0.1rem solid ${colors.grey[300]}`,
 }
 
 export const borderRadius = (...args) => {
@@ -44,4 +52,9 @@ export const padding = (...args) => {
   const values = args.map(getValue)
 
   return `padding: ${values.join(' ')};`
+}
+
+export const border = (size = 'none', direction) => {
+  if (!direction) return `border: ${borderSize[size]};`
+  return `border-${direction}: ${borderSize[size]}};`
 }

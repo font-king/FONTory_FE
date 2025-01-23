@@ -58,19 +58,15 @@ const Header = styled.header`
 `
 
 const Main = styled.main`
+  ${({ theme }) => theme.gridBox('1fr 4fr 1fr', undefined, undefined, undefined, 'md')};
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  gap: 1.6rem;
   overflow: hidden;
   padding: 0.8rem;
 `
 
 const Test = styled.div`
+  ${({ theme }) => theme.gridBox('1fr 1fr 1fr', undefined, undefined, undefined, 'sm')};
   background: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
   padding: 30px;
 `
 

@@ -72,6 +72,13 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration: none;
 		color: inherit;
 	}
+	button {
+		font: inherit;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+	}
 
   @media (min-width: 1300px) {
     html {

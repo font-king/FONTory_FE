@@ -12,6 +12,7 @@ export const ContentLayout = ({ title, children }) => {
 const Container = styled.div`
   ${({ theme }) => theme.padding('xl')};
   ${({ theme }) => theme.borderRadius('container')};
+  height: fit-content;
   background-color: white;
 
   .title {

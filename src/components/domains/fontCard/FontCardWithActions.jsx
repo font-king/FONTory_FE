@@ -4,7 +4,6 @@ import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
 
 export const FontCardWithActions = ({ font, onDownload, onSave }) => {
-  console.log(font)
   const [isBookmarked, toggleBookmark] = useToggle(font.isBookmarked)
 
   const handleBookmark = () => {
@@ -22,9 +21,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
           <p className="designer-name">{font.designer}</p>
         </FontInfo>
       </ProfileSection>
-
       <PreviewText>동해물과 백두산이 마르고 닳도록 하느님이 보우하사</PreviewText>
-
       <ActionGroup size="sm">
         <ActionGroup.Download onClick={onDownload} />
         <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />

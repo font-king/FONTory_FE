@@ -56,5 +56,5 @@ export const padding = (...args) => {
 
 export const border = (size = 'none', direction) => {
   if (!direction) return `border: ${borderSize[size]};`
-  return `border-${direction}: ${borderSize[size]}};`
+  return `border-${direction}: ${borderSize[size]};`
 }

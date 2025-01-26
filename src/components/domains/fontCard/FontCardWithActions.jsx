@@ -13,13 +13,13 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
   }
 
   return (
-    <FontCardContainer>
+    <Container>
       <ProfileSection>
         <div className="profile" />
 
         <FontInfo>
-          <FontName>{font.name}</FontName>
-          <DesignerName>{font.designer}</DesignerName>
+          <h6 className="font-name">{font.name}</h6>
+          <p className="designer-name">{font.designer}</p>
         </FontInfo>
       </ProfileSection>
 
@@ -29,11 +29,11 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
         <ActionGroup.Download onClick={onDownload} />
         <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
       </ActionGroup>
-    </FontCardContainer>
+    </Container>
   )
 }
 
-const FontCardContainer = styled.div`
+const Container = styled.div`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
   ${({ theme }) => theme.borderRadius('md')};
   ${({ theme }) => theme.padding('lg', 'md', 'sm')};
@@ -54,14 +54,14 @@ const ProfileSection = styled.div`
 
 const FontInfo = styled.div`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xs')};
-`
 
-const FontName = styled.h6`
-  ${({ theme }) => theme.font(400)};
-`
+  .font-name {
+    ${({ theme }) => theme.font(400)};
+  }
 
-const DesignerName = styled.p`
-  ${({ theme }) => theme.font(800, theme.colors.grey[600])};
+  .designer-name {
+    ${({ theme }) => theme.font(800, theme.colors.grey[400])};
+  }
 `
 
 const PreviewText = styled.p`

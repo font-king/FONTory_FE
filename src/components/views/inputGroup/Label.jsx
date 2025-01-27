@@ -28,7 +28,7 @@ export const Label = ({ successMessage, errorMessage, label }) => {
 }
 
 const LabelContainer = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'sm')};
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'md')};
 `
 
 const LabelMessage = styled.p`

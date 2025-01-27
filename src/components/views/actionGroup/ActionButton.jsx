@@ -74,7 +74,7 @@ export const Complete = (props) => {
 }
 
 const ButtonContainer = styled.button`
-  ${({ theme, size }) => theme.flexBox('row', 'center', undefined, size === 'sm' ? 'xs' : 'md')};
+  ${({ theme, size }) => theme.flexBox('row', 'center', undefined, size === 'sm' ? 'sm' : 'lg')};
   ${({ theme, size }) => theme.font(size === 'sm' ? 900 : 500, theme.colors.grey[600])};
   ${({ theme, size }) => theme.padding(size === 'sm' ? 'sm' : 'lg', 0, 0)};
   background: white;

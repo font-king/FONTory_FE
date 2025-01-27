@@ -1,16 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { FontCardWithActions } from './components/domains/fontCard/FontCardWithActions'
+import { RouterComponent } from './components/views/RouterComponent'
 import { SideNavbar } from './components/views/SideNavbar'
 import { colors } from './styles/palette'
-
-const dummy = {
-  name: '가나다체',
-  designer: '고로케',
-  previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-  isBookmarked: true,
-}
 
 function App() {
   return (
@@ -23,17 +16,7 @@ function App() {
 
       <Main>
         <SideNavbar />
-        <div style={{ height: '200vh' }}>
-          <Test>
-            <FontCardWithActions
-              font={dummy}
-              onDownload={() => console.log('down')}
-              onSave={() => console.log('save')}
-            />
-            {/* <FontCardWithActions />
-            <FontCardWithActions /> */}
-          </Test>
-        </div>
+        <RouterComponent />
         <div>3</div>
       </Main>
     </Container>
@@ -61,12 +44,6 @@ const Main = styled.main`
   ${({ theme }) => theme.padding('sm')};
   flex-grow: 1;
   overflow: hidden;
-`
-
-const Test = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr 1fr', undefined, undefined, undefined, 'sm')};
-  background: white;
-  padding: 30px;
 `
 
 export default App

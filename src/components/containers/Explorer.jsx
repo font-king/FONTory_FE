@@ -1,0 +1,76 @@
+import { useState } from 'react'
+import styled from 'styled-components'
+
+import { FontCardWithActions } from '../domains/fontCard/FontCardWithActions'
+import { ContentLayout } from '../views/ContentLayout'
+
+const dummyFont = {
+  name: '가나다체',
+  designer: '고로케',
+  previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
+  isBookmarked: true,
+}
+
+const FILTER_OPTIONS = ['전체', '조회순', '북마크순']
+
+export const Explorer = () => {
+  const [activeFilter, setActiveFilter] = useState(FILTER_OPTIONS[0])
+
+  const handleDownload = () => {}
+  const handleSave = () => {}
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter)
+  }
+
+  return (
+    <ContentLayout>
+      <ExplorerHeader>
+        <FilterList>
+          {FILTER_OPTIONS.map((filter) => (
+            <FilterItem
+              key={filter}
+              isActive={filter === activeFilter}
+              onClick={() => handleFilterClick(filter)}
+            >
+              {filter}
+            </FilterItem>
+          ))}
+        </FilterList>
+
+        <div>검색창</div>
+      </ExplorerHeader>
+
+      <FontGrid>
+        {[...Array(8)].map((_, index) => (
+          <FontCardWithActions
+            key={index}
+            font={dummyFont}
+            onDownload={handleDownload}
+            onSave={handleSave}
+          />
+        ))}
+      </FontGrid>
+    </ContentLayout>
+  )
+}
+
+const ExplorerHeader = styled.div`
+  ${({ theme }) => theme.flexBox('row', 'center', 'space-between')};
+  ${({ theme }) => theme.padding(0, 0, 'md')};
+  ${({ theme }) => theme.margin(0, 0, '2xl')};
+  ${({ theme }) => theme.border('divider', 'bottom')};
+`
+
+const FilterList = styled.ul`
+  ${({ theme }) => theme.flexBox('row', undefined, undefined, 'lg')};
+`
+
+const FilterItem = styled.li`
+  ${({ theme, isActive }) =>
+    theme.font(500, isActive ? theme.colors.blue[500] : theme.colors.grey[500])};
+  cursor: pointer;
+`
+
+const FontGrid = styled.div`
+  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'md')};
+`

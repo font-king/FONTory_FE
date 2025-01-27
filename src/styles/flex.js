@@ -14,10 +14,14 @@ export const flexBox = (
   alignItems = 'stretch',
   justifyContent = 'flex-start',
   gap = 0,
-) => `
+) => {
+  const gapValue = Object.prototype.hasOwnProperty.call(gapSize, gap) ? gapSize[gap] : gap
+
+  return `
     display: flex;
     flex-direction: ${direction};
     align-items: ${alignItems};
     justify-content: ${justifyContent};
-    gap: ${gapSize[gap]};
-`
+    gap: ${gapValue};
+  `
+}

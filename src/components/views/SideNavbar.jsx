@@ -48,7 +48,7 @@ export const SideNavbar = () => {
 }
 
 const Container = styled.nav`
-  ${({ theme }) => theme.flexBox('column', undefined, 'center', 'xxxl')};
+  ${({ theme }) => theme.flexBox('column', undefined, 'center', '4xl')};
   ${({ theme }) => theme.borderRadius('container')};
   ${({ theme }) => theme.padding('lg')};
   height: fit-content;
@@ -57,7 +57,7 @@ const Container = styled.nav`
 `
 
 const NavItemContainer = styled(Link)`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'lg')};
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'xl')};
   ${({ theme }) => theme.borderRadius('container')};
   ${({ theme }) => theme.padding('lg', 'md')};
   background: ${({ $isActive }) => ($isActive ? '#fff' : colors.blue[500])};

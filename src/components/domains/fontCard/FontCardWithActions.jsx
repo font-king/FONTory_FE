@@ -31,7 +31,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
 }
 
 const Container = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xxl')};
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, '3xl')};
   ${({ theme }) => theme.borderRadius('md')};
   ${({ theme }) => theme.padding('lg', 'md', 'sm')};
   ${({ theme }) => theme.border('divider')};
@@ -46,11 +46,11 @@ const Container = styled.div`
 `
 
 const ProfileSection = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'md')};
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'lg')};
 `
 
 const FontInfo = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xs')};
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'sm')};
 
   .font-name {
     ${({ theme }) => theme.font(400)};

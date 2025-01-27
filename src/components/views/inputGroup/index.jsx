@@ -21,6 +21,6 @@ export const InputGroup = Object.assign(InputGroupProvider, {
 })
 
 const GroupSection = styled.section`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'sm')};
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'md')};
   width: 100%;
 `

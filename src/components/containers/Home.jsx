@@ -45,11 +45,11 @@ export const Home = () => {
 }
 
 const Container = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'md')}
+  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'lg')}
 `
 
 const FeatureSectionsGrid = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'md')}
+  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'xl')}
 `
 
 const FeatureContent = styled.div`

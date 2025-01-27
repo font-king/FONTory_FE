@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ContentLayout = ({ title, children }) => {
   return (
     <Container>
-      <h4 className="title">{title}</h4>
+      {title && <h4 className="title">{title}</h4>}
       {children}
     </Container>
   )

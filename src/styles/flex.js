@@ -1,12 +1,12 @@
 const gapSize = {
   0: 0,
-  xs: '0.8rem',
-  sm: '1.2rem',
-  md: '1.6rem',
-  lg: '2.0rem',
-  xl: '2.4rem',
-  xxl: '2.8rem',
-  xxxl: '3.2rem',
+  sm: '0.8rem',
+  md: '1.2rem',
+  lg: '1.6rem',
+  xl: '2.0rem',
+  '2xl': '2.4rem',
+  '3xl': '2.8rem',
+  '4xl': '3.2rem',
 }
 
 export const flexBox = (

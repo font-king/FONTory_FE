@@ -44,6 +44,7 @@ export const Button = ({
 const BasicButton = styled.button`
   ${({ theme, size }) => theme.font(SIZE_STYLES[size].font, 'white')};
   ${({ theme, size }) => theme.borderRadius(SIZE_STYLES[size].rounded)};
+  flex-shrink: 0;
   display: ${({ $withArrow }) => ($withArrow ? 'flex' : 'inline-block')};
   gap: ${({ $withArrow }) => $withArrow && '1.2rem'};
   padding: ${({ size }) => SIZE_STYLES[size].padding};

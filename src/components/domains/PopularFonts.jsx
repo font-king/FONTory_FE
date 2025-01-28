@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { FontCardWithActions } from '../domains/fontCard/FontCardWithActions'
 import { ContentLayout } from '../views/ContentLayout'
 
-const dummyFont = {
-  name: '가나다체',
-  designer: '고로케',
-  previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-  isBookmarked: true,
+const dummyFonts = () => {
+  return Array.from({ length: 3 }, (_, i) => ({
+    id: i,
+    name: `가나다체 ${i}`,
+    designer: '고로케',
+    previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
+    isBookmarked: i % 2 === 0,
+  }))
 }
 
 export const PopularFonts = () => {
@@ -17,10 +20,10 @@ export const PopularFonts = () => {
   return (
     <ContentLayout title="인기 폰트">
       <FontsGrid>
-        {[1, 2, 3].map((_, index) => (
+        {dummyFonts().map((font) => (
           <FontCardWithActions
-            key={index}
-            font={dummyFont}
+            key={font.id}
+            font={font}
             onDownload={handleDownload}
             onSave={handleSave}
           />

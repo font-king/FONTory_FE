@@ -3,9 +3,15 @@ import styled from 'styled-components'
 
 import { CaretRightIcon } from '@/components/views/icons/NonPropIcons'
 
-export const FontCardWithArrow = ({ font, to }) => {
+export const FontCardWithArrow = ({ font }) => {
+  const basePath = location.pathname.startsWith('/explorer')
+    ? '/explorer'
+    : location.pathname.startsWith('/bookmark')
+      ? '/bookmark'
+      : '/my-fonts'
+
   return (
-    <LinkContainer to={to}>
+    <LinkContainer to={`${basePath}/detail/${font.id}`}>
       <FontInfo>
         <h6 className="font-name">{font.name}</h6>
         <CaretRightIcon />

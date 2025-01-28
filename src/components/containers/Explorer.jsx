@@ -4,11 +4,14 @@ import styled from 'styled-components'
 import { FontCardWithActions } from '../domains/fontCard/FontCardWithActions'
 import { ContentLayout } from '../views/ContentLayout'
 
-const dummyFont = {
-  name: '가나다체',
-  designer: '고로케',
-  previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-  isBookmarked: true,
+const dummyFonts = () => {
+  return Array.from({ length: 8 }, (_, i) => ({
+    id: i,
+    name: `가나다체 ${i}`,
+    designer: '고로케',
+    previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
+    isBookmarked: i % 2 === 0,
+  }))
 }
 
 const FILTER_OPTIONS = ['전체', '조회순', '북마크순']
@@ -29,7 +32,7 @@ export const Explorer = () => {
           {FILTER_OPTIONS.map((filter) => (
             <FilterItem
               key={filter}
-              isActive={filter === activeFilter}
+              $isActive={filter === activeFilter}
               onClick={() => handleFilterClick(filter)}
             >
               {filter}
@@ -41,10 +44,10 @@ export const Explorer = () => {
       </ExplorerHeader>
 
       <FontGrid>
-        {[...Array(8)].map((_, index) => (
+        {dummyFonts().map((font) => (
           <FontCardWithActions
-            key={index}
-            font={dummyFont}
+            key={font.id}
+            font={font}
             onDownload={handleDownload}
             onSave={handleSave}
           />
@@ -66,8 +69,8 @@ const FilterList = styled.ul`
 `
 
 const FilterItem = styled.li`
-  ${({ theme, isActive }) =>
-    theme.font(500, isActive ? theme.colors.blue[500] : theme.colors.grey[500])};
+  ${({ theme, $isActive }) =>
+    theme.font(500, $isActive ? theme.colors.blue[500] : theme.colors.grey[500])};
   cursor: pointer;
 `
 

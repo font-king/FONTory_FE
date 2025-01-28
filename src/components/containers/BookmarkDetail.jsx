@@ -31,6 +31,6 @@ const dummyFont = {
   ],
 }
 
-export const ExplorerDetail = () => {
+export const BookmarkDetail = () => {
   return <FontDetail font={dummyFont} />
 }

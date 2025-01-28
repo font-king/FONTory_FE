@@ -13,7 +13,7 @@ const RecommendedSection = ({ recommendList }) => {
       <Label>제작자의 다른 폰트</Label>
       <RecommendFontList>
         {recommendList.map((font, index) => (
-          <FontCardWithArrow key={index} font={font} to={'/'} />
+          <FontCardWithArrow key={index} font={font} />
         ))}
       </RecommendFontList>
     </div>

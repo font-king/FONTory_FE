@@ -16,9 +16,9 @@ export const Bookmark = () => {
 
   return (
     <ContentLayout>
-      <ExplorerHeader>
+      <BookmarkHeader>
         <div>검색창</div>
-      </ExplorerHeader>
+      </BookmarkHeader>
 
       <FontGrid>
         {[...Array(8)].map((_, index) => (
@@ -33,7 +33,7 @@ export const Bookmark = () => {
     </ContentLayout>
   )
 }
-const ExplorerHeader = styled.div`
+const BookmarkHeader = styled.div`
   ${({ theme }) => theme.flexBox('row', undefined, 'flex-end')};
   ${({ theme }) => theme.padding(0, 0, 'md')};
   ${({ theme }) => theme.margin(0, 0, '2xl')};

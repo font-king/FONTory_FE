@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { ContentLayout } from '../views/ContentLayout'
-
 const dummyRank = [
   { name: '가나다체', bookmark: 33, download: 19 },
   { name: '마바사체', bookmark: 11, download: 23 },
@@ -66,17 +64,12 @@ export const BarChart = ({ data }) => {
   )
 }
 
-export const MyFontsRank = () => {
+export const MyFontsChart = () => {
   return (
-    <ContentLayout
-      title="나만의 폰트 랭킹"
-      subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
-    >
-      <ChartSection>
-        <BarChart data={dummyRank} />
-        <ChartLegend />
-      </ChartSection>
-    </ContentLayout>
+    <ChartSection>
+      <BarChart data={dummyRank} />
+      <ChartLegend />
+    </ChartSection>
   )
 }
 

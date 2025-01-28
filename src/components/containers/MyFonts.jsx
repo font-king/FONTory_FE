@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { FontCardWithArrow } from '../domains/fontCard/FontCardWithArrow'
-import { MyFontsRank } from '../domains/MyFontsRank'
+import { MyFontsChart } from '../domains/MyFontsChart'
 import { ContentLayout } from '../views/ContentLayout'
 
 const dummyFonts = () => {
@@ -18,7 +18,12 @@ const dummyFonts = () => {
 export const MyFonts = () => {
   return (
     <Container>
-      <MyFontsRank />
+      <ContentLayout
+        title="나만의 폰트 랭킹"
+        subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
+      >
+        <MyFontsChart />
+      </ContentLayout>
 
       <ContentLayout title="내가 제작한 폰트">
         <FontGrid>

@@ -20,14 +20,24 @@ const RecommendedSection = ({ recommendList }) => {
   )
 }
 
-export const FontDetail = ({ font, isMyFont, onEdit }) => {
-  const [isBookmarked, toggleBookmark] = useToggle(font.isBookmarked)
+const ActionGroupSection = ({ bookmarkState, isMyFont, onEdit }) => {
+  const [isBookmarked, toggleBookmark] = useToggle(bookmarkState)
   const handleDownload = () => {}
 
   const handleBookmark = () => {
     toggleBookmark()
   }
 
+  return (
+    <ActionGroup size="lg">
+      <ActionGroup.Download onClick={handleDownload} />
+      {isMyFont && <ActionGroup.Edit onClick={onEdit} />}
+      <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
+    </ActionGroup>
+  )
+}
+
+export const FontDetail = ({ font, isMyFont, onEdit }) => {
   return (
     <ContentLayout>
       <ProfileSection>
@@ -65,11 +75,7 @@ export const FontDetail = ({ font, isMyFont, onEdit }) => {
         {!isMyFont && <RecommendedSection recommendList={font.recommend} />}
       </Content>
 
-      <ActionGroup size="lg">
-        <ActionGroup.Download onClick={handleDownload} />
-        {isMyFont && <ActionGroup.Edit onClick={onEdit} />}
-        <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
-      </ActionGroup>
+      <ActionGroupSection bookmarkState={font.isBookmarked} isMyFont={isMyFont} onEdit={onEdit} />
     </ContentLayout>
   )
 }

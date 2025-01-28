@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { FontCardWithActions } from '../domains/fontCard/FontCardWithActions'
@@ -16,8 +15,6 @@ const dummyFonts = Array.from({ length: 8 }, (_, index) => createDummyFont(index
 export const Bookmark = () => {
   const handleDownload = () => {}
   const handleSave = () => {}
-  const location = useLocation()
-  const basePath = location.pathname.startsWith('/bookmark') ? '/bookmark' : '/explorer'
 
   return (
     <ContentLayout>
@@ -30,7 +27,6 @@ export const Bookmark = () => {
           <FontCardWithActions
             key={font.id}
             font={font}
-            to={`${basePath}/detail/${font.id}`}
             onDownload={handleDownload}
             onSave={handleSave}
           />

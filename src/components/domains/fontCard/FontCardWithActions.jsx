@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
 
-export const FontCardWithActions = ({ font, to, onDownload, onSave }) => {
+export const FontCardWithActions = ({ font, onDownload, onSave }) => {
+  const location = useLocation()
+  const basePath = location.pathname.startsWith('/bookmark') ? '/bookmark' : '/explorer'
+
   const [isBookmarked, toggleBookmark] = useToggle(font.isBookmarked)
 
   const handleBookmark = () => {
@@ -13,7 +16,7 @@ export const FontCardWithActions = ({ font, to, onDownload, onSave }) => {
   }
 
   return (
-    <LinkContainer to={to}>
+    <LinkContainer to={`${basePath}/detail/${font.id}`}>
       <ProfileSection>
         <div className="profile" />
 

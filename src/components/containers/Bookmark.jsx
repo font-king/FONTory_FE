@@ -7,7 +7,10 @@ const createDummyFont = (id) => ({
   id,
   name: `가나다체 ${id}`,
   designer: '고로케',
-  previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
+  preview:
+    id % 2 === 0
+      ? '동해물과 백두산이 마르고 닳도록 하느님이 보우하사'
+      : '동해물과 백두산이 마르고 닳도록 하느님이 보우하사닳도록 하느님이 보우하사',
   isBookmarked: true,
 })
 const dummyFonts = Array.from({ length: 8 }, (_, index) => createDummyFont(index))

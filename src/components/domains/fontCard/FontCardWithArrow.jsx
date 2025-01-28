@@ -39,5 +39,5 @@ const FontInfo = styled.div`
 
 const PreviewText = styled.p`
   ${({ theme }) => theme.font(500, theme.colors.grey[600])};
-  min-height: 10.8rem;
+  height: fit-content;
 `

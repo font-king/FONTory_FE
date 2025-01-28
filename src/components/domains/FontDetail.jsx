@@ -20,14 +20,24 @@ const RecommendedSection = ({ recommendList }) => {
   )
 }
 
-export const FontDetail = ({ font, isMyFont }) => {
-  const [isBookmarked, toggleBookmark] = useToggle(font.isBookmarked)
+const ActionGroupSection = ({ bookmarkState, isMyFont, onEdit }) => {
+  const [isBookmarked, toggleBookmark] = useToggle(bookmarkState)
   const handleDownload = () => {}
 
   const handleBookmark = () => {
     toggleBookmark()
   }
 
+  return (
+    <ActionGroup size="lg">
+      <ActionGroup.Download onClick={handleDownload} />
+      {isMyFont && <ActionGroup.Edit onClick={onEdit} />}
+      <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
+    </ActionGroup>
+  )
+}
+
+export const FontDetail = ({ font, isMyFont, onEdit }) => {
   return (
     <ContentLayout>
       <ProfileSection>
@@ -65,10 +75,7 @@ export const FontDetail = ({ font, isMyFont }) => {
         {!isMyFont && <RecommendedSection recommendList={font.recommend} />}
       </Content>
 
-      <ActionGroup size="lg">
-        <ActionGroup.Download onClick={handleDownload} />
-        <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
-      </ActionGroup>
+      <ActionGroupSection bookmarkState={font.isBookmarked} isMyFont={isMyFont} onEdit={onEdit} />
     </ContentLayout>
   )
 }
@@ -121,9 +128,9 @@ const Label = styled.p`
 
 const TextArea = styled.textarea`
   ${({ theme }) => theme.padding('xl', '2xl')};
-  ${({ theme }) => theme.border('divider')};
+  ${({ theme }) => theme.border('input')};
   ${({ theme }) => theme.borderRadius('lg')};
-  ${({ theme }) => theme.font(500, theme.colors.grey[600])};
+  ${({ theme }) => theme.font(500, theme.colors.grey[700])};
   width: 100%;
   box-sizing: border-box;
   resize: none;

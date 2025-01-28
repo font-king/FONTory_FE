@@ -21,6 +21,8 @@ const gapSize = {
   '4xl': '3.2rem',
 
   'chart-grid': '5rem',
+  'modal-y': '5.2rem',
+  'modal-x': '4rem',
 }
 
 const borderSize = {
@@ -28,6 +30,11 @@ const borderSize = {
   divider: `0.1rem solid ${colors.grey[300]}`,
   input: `0.1rem solid ${colors.grey[300]}`,
   chart: `1px dashed ${colors.grey[300]}`,
+}
+
+const boxShadowSize = {
+  0: '0',
+  input: `0 0 0 1px ${colors.grey[300]} inset`,
 }
 
 export const borderRadius = (...args) => {
@@ -60,4 +67,9 @@ export const padding = (...args) => {
 export const border = (size = 'none', direction) => {
   if (!direction) return `border: ${borderSize[size]};`
   return `border-${direction}: ${borderSize[size]};`
+}
+
+export const boxShadow = (size = 0) => {
+  if (!size) return `box-shadow: ${borderSize[0]};`
+  return `box-shadow: ${boxShadowSize[size]};`
 }

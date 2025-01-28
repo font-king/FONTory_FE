@@ -6,6 +6,7 @@ import { Explorer } from '../containers/Explorer'
 import { ExplorerDetail } from '../containers/ExplorerDetail'
 import { Home } from '../containers/Home'
 import { MyFonts } from '../containers/MyFonts'
+import { MyFontsDetail } from '../containers/MyFontsDetail'
 
 export const RouterComponent = () => {
   return (
@@ -16,6 +17,7 @@ export const RouterComponent = () => {
       <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/bookmark/detail/:id" element={<BookmarkDetail />} />
       <Route path="/my-fonts" element={<MyFonts />} />
+      <Route path="/my-fonts/detail/:id" element={<MyFontsDetail />} />
     </Routes>
   )
 }

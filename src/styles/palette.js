@@ -5,7 +5,7 @@ const grey = {
   400: '#BABABA',
   500: '#9E9E9E',
   600: '#777777',
-  700: '#3C3C3C',
+  700: '#535353',
 }
 
 const blue = {
@@ -19,6 +19,7 @@ const blue = {
 }
 
 const ect = {
+  dimmed: 'rgba(34, 40, 48, 0.60)',
   error: '#FF8E5D',
   success: '#9CDE70',
 }

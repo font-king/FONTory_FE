@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ActionGroup } from '@/components/views/actionGroup'
 import { useToggle } from '@/hooks/useToggle'
 
-export const FontCardWithActions = ({ font, onDownload, onSave }) => {
+export const FontCardWithActions = ({ font, to, onDownload, onSave }) => {
   const [isBookmarked, toggleBookmark] = useToggle(font.isBookmarked)
 
   const handleBookmark = () => {
@@ -12,7 +13,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
   }
 
   return (
-    <Container>
+    <LinkContainer to={to}>
       <ProfileSection>
         <div className="profile" />
 
@@ -26,11 +27,11 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
         <ActionGroup.Download onClick={onDownload} />
         <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
       </ActionGroup>
-    </Container>
+    </LinkContainer>
   )
 }
 
-const Container = styled.div`
+const LinkContainer = styled(Link)`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, '3xl')};
   ${({ theme }) => theme.borderRadius('md')};
   ${({ theme }) => theme.padding('lg', 'md', 'sm')};

@@ -1,18 +1,23 @@
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { FontCardWithActions } from '../domains/fontCard/FontCardWithActions'
 import { ContentLayout } from '../views/ContentLayout'
 
-const dummyFont = {
-  name: '가나다체',
+const createDummyFont = (id) => ({
+  id,
+  name: `가나다체 ${id}`,
   designer: '고로케',
   previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
   isBookmarked: true,
-}
+})
+const dummyFonts = Array.from({ length: 8 }, (_, index) => createDummyFont(index))
 
 export const Bookmark = () => {
   const handleDownload = () => {}
   const handleSave = () => {}
+  const location = useLocation()
+  const basePath = location.pathname.startsWith('/bookmark') ? '/bookmark' : '/explorer'
 
   return (
     <ContentLayout>
@@ -21,10 +26,11 @@ export const Bookmark = () => {
       </BookmarkHeader>
 
       <FontGrid>
-        {[...Array(8)].map((_, index) => (
+        {dummyFonts.map((font) => (
           <FontCardWithActions
-            key={index}
-            font={dummyFont}
+            key={font.id}
+            font={font}
+            to={`${basePath}/detail/${font.id}`}
             onDownload={handleDownload}
             onSave={handleSave}
           />

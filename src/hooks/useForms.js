@@ -3,11 +3,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { fontEditSchema } from '@/utils/schema'
 
-export const useFontEditForm = () => {
+export const useFontEditForm = ({ defaultValues }) => {
   const formMethod = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
     resolver: zodResolver(fontEditSchema),
+    defaultValues,
   })
 
   return formMethod

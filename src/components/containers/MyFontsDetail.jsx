@@ -21,9 +21,13 @@ const dummyFont = {
   isBookmarked: false,
 }
 
-export const MyFontsDetail = () => {
-  const [isModalOpen, openModal, closeModal] = useBoolean(false)
-  const formMethod = useFontEditForm()
+const FontEditModal = ({ isOpen, closeModal, fontName, preview }) => {
+  const formMethod = useFontEditForm({
+    defaultValues: {
+      name: fontName,
+      preview,
+    },
+  })
   const { handleSubmit } = formMethod
 
   const submitForm = (formData) => {
@@ -32,31 +36,43 @@ export const MyFontsDetail = () => {
   }
 
   return (
+    <FormProvider {...formMethod}>
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        onSubmit={handleSubmit(submitForm)}
+        title="내 폰트 수정"
+      >
+        <GridContainer>
+          <InputGroup section={FORM_ATTRIBUTE.NAME.section}>
+            <InputGroup.Label label={FORM_ATTRIBUTE.NAME.label} />
+            <InputGroup.Input {...FORM_ATTRIBUTE.NAME.input} />
+          </InputGroup>
+
+          <Button size="lg">중복 검사</Button>
+        </GridContainer>
+
+        <InputGroup section={FORM_ATTRIBUTE.PREVIEW.section}>
+          <InputGroup.Label label={FORM_ATTRIBUTE.PREVIEW.label} />
+          <InputGroup.TextArea {...FORM_ATTRIBUTE.PREVIEW.input} />
+        </InputGroup>
+      </Modal>
+    </FormProvider>
+  )
+}
+
+export const MyFontsDetail = () => {
+  const [isModalOpen, openModal, closeModal] = useBoolean(false)
+
+  return (
     <>
       <FontDetail isMyFont font={dummyFont} onEdit={openModal} />
-
-      <FormProvider {...formMethod}>
-        <Modal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          onSubmit={handleSubmit(submitForm)}
-          title="내 폰트 수정"
-        >
-          <GridContainer>
-            <InputGroup section={FORM_ATTRIBUTE.NAME.section}>
-              <InputGroup.Label label={FORM_ATTRIBUTE.NAME.label} />
-              <InputGroup.Input {...FORM_ATTRIBUTE.NAME.input} />
-            </InputGroup>
-
-            <Button size="lg">중복 검사</Button>
-          </GridContainer>
-
-          <InputGroup section={FORM_ATTRIBUTE.PREVIEW.section}>
-            <InputGroup.Label label={FORM_ATTRIBUTE.PREVIEW.label} />
-            <InputGroup.TextArea {...FORM_ATTRIBUTE.PREVIEW.input} />
-          </InputGroup>
-        </Modal>
-      </FormProvider>
+      <FontEditModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        fontName={dummyFont.profile.name}
+        preview={dummyFont.preview}
+      />
     </>
   )
 }

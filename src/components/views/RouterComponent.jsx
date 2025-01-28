@@ -5,6 +5,7 @@ import { BookmarkDetail } from '../containers/BookmarkDetail'
 import { Explorer } from '../containers/Explorer'
 import { ExplorerDetail } from '../containers/ExplorerDetail'
 import { Home } from '../containers/Home'
+import { MyFonts } from '../containers/MyFonts'
 
 export const RouterComponent = () => {
   return (
@@ -14,6 +15,7 @@ export const RouterComponent = () => {
       <Route path="/explorer/detail/:id" element={<ExplorerDetail />} />
       <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/bookmark/detail/:id" element={<BookmarkDetail />} />
+      <Route path="/my-fonts" element={<MyFonts />} />
     </Routes>
   )
 }

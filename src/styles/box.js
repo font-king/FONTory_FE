@@ -19,12 +19,15 @@ const gapSize = {
   '2xl': '2.4rem',
   '3xl': '2.8rem',
   '4xl': '3.2rem',
+
+  'chart-grid': '5rem',
 }
 
 const borderSize = {
   0: 'none',
   divider: `0.1rem solid ${colors.grey[300]}`,
   input: `0.1rem solid ${colors.grey[300]}`,
+  chart: `1px dashed ${colors.grey[300]}`,
 }
 
 export const borderRadius = (...args) => {

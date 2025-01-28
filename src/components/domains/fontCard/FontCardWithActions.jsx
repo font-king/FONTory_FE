@@ -25,7 +25,7 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
           <p className="designer-name">{font.designer}</p>
         </FontInfo>
       </ProfileSection>
-      <PreviewText>동해물과 백두산이 마르고 닳도록 하느님이 보우하사</PreviewText>
+      <PreviewText>{font.preview}</PreviewText>
       <ActionGroup size="sm">
         <ActionGroup.Download onClick={onDownload} />
         <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
@@ -67,5 +67,6 @@ const FontInfo = styled.div`
 
 const PreviewText = styled.p`
   ${({ theme }) => theme.font(500, theme.colors.grey[600])};
-  min-height: 10.8rem;
+  flex-grow: 1;
+  height: fit-content;
 `

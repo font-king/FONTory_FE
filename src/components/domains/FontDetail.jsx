@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useToggle } from '@/hooks/useToggle'
@@ -9,15 +8,12 @@ import { ContentLayout } from '../views/ContentLayout'
 import { FontCardWithArrow } from './fontCard/FontCardWithArrow'
 
 const RecommendedSection = ({ recommendList }) => {
-  const location = useLocation()
-  const basePath = location.pathname.startsWith('/bookmark') ? '/bookmark' : '/explorer'
-
   return (
     <div>
       <Label>제작자의 다른 폰트</Label>
       <RecommendFontList>
         {recommendList.map((font, index) => (
-          <FontCardWithArrow key={index} font={font} to={`${basePath}/detail/${font.id}`} />
+          <FontCardWithArrow key={index} font={font} />
         ))}
       </RecommendFontList>
     </div>

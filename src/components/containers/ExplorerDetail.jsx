@@ -11,16 +11,19 @@ const dummyFont = {
   isBookmarked: false,
   recommend: [
     {
+      id: 0,
       name: '가나다체',
       designer: '고로케',
       preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
     },
     {
+      id: 1,
       name: '가나다체',
       designer: '고로케',
       preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
     },
     {
+      id: 2,
       name: '가나다체',
       designer: '고로케',
       preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',

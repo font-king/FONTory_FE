@@ -7,7 +7,7 @@ import { FORM_ATTRIBUTE } from '@/shared/lib/constants'
 import { Button } from '@/shared/ui/Button'
 import { FontDetail } from '@/shared/ui/FontDetail'
 import { InputGroup } from '@/shared/ui/inputGroup'
-import { Modal } from '@/shared/ui/modal/Modal'
+import { Modal } from '@/shared/ui/Modal'
 
 const dummyFont = {
   profile: {
@@ -20,7 +20,7 @@ const dummyFont = {
   isBookmarked: false,
 }
 
-const FontEditModal = ({ isOpen, closeModal, fontName, preview }) => {
+const FontEditModal = ({ closeModal, fontName, preview }) => {
   const formMethod = useFontEditForm({
     defaultValues: {
       name: fontName,
@@ -36,12 +36,7 @@ const FontEditModal = ({ isOpen, closeModal, fontName, preview }) => {
 
   return (
     <FormProvider {...formMethod}>
-      <Modal
-        isOpen={isOpen}
-        onClose={closeModal}
-        onSubmit={handleSubmit(submitForm)}
-        title="내 폰트 수정"
-      >
+      <Modal onSubmit={handleSubmit(submitForm)} title="내 폰트 수정">
         <GridContainer>
           <InputGroup section={FORM_ATTRIBUTE.NAME.section}>
             <InputGroup.Label label={FORM_ATTRIBUTE.NAME.label} />

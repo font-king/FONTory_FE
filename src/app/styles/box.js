@@ -15,7 +15,7 @@ const gapSize = {
 const paddingSize = {
   ...gapSize,
   sidebar: '6rem 2rem',
-  modal: '5.2rem, 4rem',
+  modal: '5.2rem 4rem',
 }
 
 const borderSize = {

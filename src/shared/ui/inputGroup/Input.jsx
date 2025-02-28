@@ -1,38 +1,39 @@
-import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
 
-import { InputGroupContext } from '@/shared/hook/useInputGroupContext'
+import { useInputGroupContext } from '@/shared/hook/useInputGroupContext'
 
 export const Input = (props) => {
   const { register } = useFormContext()
-  const section = useContext(InputGroupContext)
+  const section = useInputGroupContext()
 
   return <InputContainer {...register(section)} {...props} />
 }
 
 export const TextArea = (props) => {
   const { register } = useFormContext()
-  const section = useContext(InputGroupContext)
+  const section = useInputGroupContext()
 
   return <TextAreaContainer {...register(section)} {...props} />
 }
 
 const InputContainer = styled.input`
-  ${({ theme }) => theme.font(500, theme.colors.grey[700])};
-  ${({ theme }) => theme.borderRadius('md')};
-  ${({ theme }) => theme.padding('xl', '2xl')};
-  ${({ theme }) => theme.boxShadow('input')};
+  ${({ theme }) => `
+    ${theme.padding('xl', '2xl')}
+    ${theme.border('input')}
+    ${theme.borderRadius('sm')}
+    ${theme.font(500, theme.colors.grey[700])}
+  `}
   width: 100%;
-  box-sizing: border-box;
 `
 
 const TextAreaContainer = styled.textarea`
-  ${({ theme }) => theme.font(500, theme.colors.grey[700])};
-  ${({ theme }) => theme.borderRadius('lg')};
-  ${({ theme }) => theme.padding('xl', '2xl')};
-  ${({ theme }) => theme.border('input')};
+  ${({ theme }) => `
+    ${theme.padding('xl', '2xl')}
+    ${theme.border('input')}
+    ${theme.borderRadius('sm')}
+    ${theme.font(500, theme.colors.grey[700])}
+  `}
   width: 100%;
-  min-height: 18rem;
-  box-sizing: border-box;
+  min-height: 11.8rem;
 `

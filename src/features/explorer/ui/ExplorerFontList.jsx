@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { FontItemWithButtons } from '@/entities/fontItem/ui/FontItemWithButtons'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -16,9 +17,13 @@ const dummyFonts = () => {
 }
 
 export const ExplorerFontList = () => {
+  const fontList = dummyFonts()
+
+  if (!fontList) return <EmptyMessage message="등록된 폰트가 없습니다." />
+
   return (
     <Container>
-      {dummyFonts().map((font) => (
+      {fontList.map((font) => (
         <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
       ))}
     </Container>

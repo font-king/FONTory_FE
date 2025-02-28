@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 
+import { FilterList } from '@/entities/filter/ui/FilterList'
 import { FontItemWithButtons } from '@/entities/fontItem/ui/FontItemWithButtons'
-import { ExplorerSearchBar } from '@/entities/fontSearch/ui/ExplorerSearchBar'
+import { SearchBar } from '@/entities/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
@@ -18,31 +18,12 @@ const dummyFonts = () => {
   }))
 }
 
-const FILTER_OPTIONS = ['전체', '조회순', '북마크순']
-
 export const Explorer = () => {
-  const [activeFilter, setActiveFilter] = useState(FILTER_OPTIONS[0])
-
-  const handleFilterClick = (filter) => {
-    setActiveFilter(filter)
-  }
-
   return (
     <SectionLayout>
       <ExplorerHeader>
-        <FilterList>
-          {FILTER_OPTIONS.map((filter) => (
-            <FilterItem
-              key={filter}
-              $isActive={filter === activeFilter}
-              onClick={() => handleFilterClick(filter)}
-            >
-              {filter}
-            </FilterItem>
-          ))}
-        </FilterList>
-
-        <ExplorerSearchBar />
+        <FilterList />
+        <SearchBar />
       </ExplorerHeader>
 
       <FontGrid>
@@ -55,20 +36,12 @@ export const Explorer = () => {
 }
 
 const ExplorerHeader = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', 'space-between')};
-  ${({ theme }) => theme.padding(0, 0, 'md')};
-  ${({ theme }) => theme.margin(0, 0, '2xl')};
-  ${({ theme }) => theme.border('divider', 'bottom')};
-`
-
-const FilterList = styled.ul`
-  ${({ theme }) => theme.flexBox('row', undefined, undefined, 'lg')};
-`
-
-const FilterItem = styled.li`
-  ${({ theme, $isActive }) =>
-    theme.font(500, $isActive ? theme.colors.blue[500] : theme.colors.grey[500])};
-  cursor: pointer;
+  ${({ theme }) => `
+    ${theme.gridBox('1fr 1fr', undefined, 'center')}
+    ${theme.padding(0, 0, 'md')}
+    ${theme.margin(0, 0, '2xl')}
+    ${theme.border('divider', 'bottom')}
+  `}
 `
 
 const FontGrid = styled.div`

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { colors } from './palette'
+import { inputStyle } from './input'
 
 const GlobalStyles = createGlobalStyle`
 	@font-face {
@@ -81,24 +81,8 @@ const GlobalStyles = createGlobalStyle`
 		padding: 0;
 		cursor: pointer;
 	}
-
-	input, textarea {
-		font: inherit;
-		border: none;
-		outline: none;
-		
-		&:focus {
-			outline: none;
-		}
-
-		&::placeholder {
-			color: ${colors.grey[500]};
-		}
-	}
-
-	textarea {
-		resize: none;
-	}
+	
+	${inputStyle}
 
   @media (min-width: 1300px) {
     html {
@@ -111,6 +95,9 @@ const GlobalStyles = createGlobalStyle`
       font-size: 80%;
     }
   }
+
+	
+
 `
 
 export default GlobalStyles

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { RouterComponent } from './app/router/RouterComponent'
 import { colors } from './app/styles/palette'
-import { SideNavbar } from './shared/ui/SideNavbar'
+import { SideNavigationBar } from './shared/ui/SideNavigationBar'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       </Header>
 
       <Main>
-        <SideNavbar />
+        <SideNavigationBar />
         <RouterComponent />
         <div>3</div>
       </Main>

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
+import { FontCardWithArrow } from '@/features/fontItem/ui/FontCardWithArrow'
 import { useToggle } from '@/shared/hook/useToggle'
 
-import { FontCardWithArrow } from './fontCard/FontCardWithArrow'
 import { SectionLayout } from './SectionLayout'
 
 const RecommendedSection = ({ recommendList }) => {

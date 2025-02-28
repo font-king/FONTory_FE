@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { FontCardWithArrow } from '@/features/fontItem/ui/FontCardWithArrow'
 import { MyFontsChart } from '@/features/myFont/ui/MyFontsChart'
-import { FontCardWithArrow } from '@/shared/ui/fontCard/FontCardWithArrow'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {

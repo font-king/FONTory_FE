@@ -5,31 +5,33 @@ import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 
 export const FontCardWithArrow = ({ basePath, font }) => (
   <LinkContainer to={`${basePath}/detail/${font.id}`}>
-    <FontInfo>
-      <h6 className="font-name">{font.name}</h6>
+    <FontInformation>
+      <FontName className="font-name">{font.name}</FontName>
       <CaretRightIcon />
-    </FontInfo>
+    </FontInformation>
+
     <PreviewText>{font.preview}</PreviewText>
   </LinkContainer>
 )
 
 const LinkContainer = styled(Link)`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, '3xl')};
-  ${({ theme }) => theme.borderRadius('md')};
-  ${({ theme }) => theme.padding('lg', 'md', 'sm')};
-  ${({ theme }) => theme.border('divider')};
-  background: white;
+  ${({ theme }) => `
+    ${theme.flexBox('column', undefined, undefined, '3xl')}
+    ${theme.padding('lg', 'md', 'sm')}
+    ${theme.borderRadius('md')}
+    ${theme.border('divider')}
+  `}
 `
 
-const FontInfo = styled.div`
+const FontInformation = styled.div`
   ${({ theme }) => theme.flexBox('row', 'center', 'space-between')};
+`
 
-  .font-name {
-    ${({ theme }) => theme.font(400, 'black')};
-  }
+const FontName = styled.h6`
+  ${({ theme }) => theme.font(400)};
 `
 
 const PreviewText = styled.p`
-  ${({ theme }) => theme.font(500, theme.colors.grey[600])};
+  ${({ theme }) => theme.font(700, theme.colors.grey[600])};
   height: fit-content;
 `

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { PopularFonts } from '@/features/home/ui/PopularFonts'
+import { PopularFonts } from '@/features/fontItem/ui/PopularFonts'
 import { Button } from '@/shared/ui/Button'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'

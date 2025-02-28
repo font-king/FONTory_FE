@@ -16,15 +16,15 @@ const dummyFonts = () => {
 export const PopularFonts = () => {
   return (
     <SectionLayout title="인기 폰트">
-      <FontsGrid>
+      <GridFontsContainer>
         {dummyFonts().map((font) => (
           <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
         ))}
-      </FontsGrid>
+      </GridFontsContainer>
     </SectionLayout>
   )
 }
 
-const FontsGrid = styled.div`
+const GridFontsContainer = styled.div`
   ${({ theme }) => theme.gridBox('1fr 1fr 1fr', undefined, undefined, undefined, 'md')}
 `

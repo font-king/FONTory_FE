@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { FontProfile } from '@/shared/ui/FontProfile'
+
 import { BookmarkButton } from './BookmarkButton'
 import { DownloadButton } from './DownloadButton'
-import { FontProfile } from './FontProfile'
 
 export const FontItemWithButtons = ({ basePath, font }) => (
   <LinkContainer to={`${basePath}/detail/${font.id}`}>

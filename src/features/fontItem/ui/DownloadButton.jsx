@@ -1,4 +1,4 @@
-import { DownloadIcon } from './icons/NonPropIcons'
+import { DownloadIcon } from '@/shared/ui/icons/NonPropIcons'
 
 export const DownloadButton = () => {
   const handleDownload = (event) => {

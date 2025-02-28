@@ -3,23 +3,15 @@ import styled from 'styled-components'
 
 import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 
-export const FontCardWithArrow = ({ font }) => {
-  const basePath = location.pathname.startsWith('/explorer')
-    ? '/explorer'
-    : location.pathname.startsWith('/bookmark')
-      ? '/bookmark'
-      : '/my-fonts'
-
-  return (
-    <LinkContainer to={`${basePath}/detail/${font.id}`}>
-      <FontInfo>
-        <h6 className="font-name">{font.name}</h6>
-        <CaretRightIcon />
-      </FontInfo>
-      <PreviewText>{font.preview}</PreviewText>
-    </LinkContainer>
-  )
-}
+export const FontCardWithArrow = ({ basePath, font }) => (
+  <LinkContainer to={`${basePath}/detail/${font.id}`}>
+    <FontInfo>
+      <h6 className="font-name">{font.name}</h6>
+      <CaretRightIcon />
+    </FontInfo>
+    <PreviewText>{font.preview}</PreviewText>
+  </LinkContainer>
+)
 
 const LinkContainer = styled(Link)`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, '3xl')};

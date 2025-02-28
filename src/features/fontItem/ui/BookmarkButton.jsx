@@ -1,6 +1,5 @@
-import { useToggle } from '../hook/useToggle'
-
-import { FilledBookmarkIcon, UnfilledBookmarkIcon } from './icons/NonPropIcons'
+import { useToggle } from '@/shared/hook/useToggle'
+import { FilledBookmarkIcon, UnfilledBookmarkIcon } from '@/shared/ui/icons/NonPropIcons'
 
 export const BookmarkButton = ({ initialBookmarkState }) => {
   const [isBookmarked, toggleBookmark] = useToggle(initialBookmarkState)

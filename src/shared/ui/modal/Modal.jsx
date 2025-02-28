@@ -39,7 +39,7 @@ const ModalBackdrop = styled.button`
 const ModalContent = styled.form`
   ${({ theme }) => theme.flexBox('column', undefined, undefined, '4xl')};
   ${({ theme }) => theme.borderRadius('lg')};
-  ${({ theme }) => theme.padding('modal-y', 'modal-x')};
+  ${({ theme }) => theme.padding('modal')};
   position: absolute;
   min-width: 61rem;
   background-color: white;

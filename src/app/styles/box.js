@@ -2,6 +2,7 @@ import { colors } from './palette'
 
 const gapSize = {
   0: 0,
+  xs: '0.4rem',
   sm: '0.8rem',
   md: '1.2rem',
   lg: '1.6rem',
@@ -9,15 +10,12 @@ const gapSize = {
   '2xl': '2.4rem',
   '3xl': '2.8rem',
   '4xl': '3.2rem',
-
-  'chart-grid': '5rem',
-  'modal-y': '5.2rem',
-  'modal-x': '4rem',
 }
 
 const paddingSize = {
   ...gapSize,
   sidebar: '6rem 2rem',
+  modal: '5.2rem, 4rem',
 }
 
 const borderSize = {

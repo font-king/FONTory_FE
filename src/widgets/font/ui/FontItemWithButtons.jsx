@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { BookmarkButton } from '@/entities/bookmark/ui/BookmarkButton'
-import { DownloadButton } from '@/entities/download/ui/DownloadButton'
+import { BookmarkButton } from '@/features/bookmark/ui/BookmarkButton'
+import { DownloadButton } from '@/features/download/ui/DownloadButton'
 import { FontProfile } from '@/shared/ui/FontProfile'
 
 export const FontItemWithButtons = ({ basePath, font }) => (

@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
-import { PopularFonts } from '@/features/home/ui/PopularFonts'
 import { Button } from '@/shared/ui/Button'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { PopularFonts } from '@/widgets/home/ui/PopularFonts'
 
 export const Home = () => {
   const navigate = useNavigate()

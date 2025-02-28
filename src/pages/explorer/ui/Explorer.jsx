@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import { FilterList } from '@/entities/filter/ui/FilterList'
-import { SearchBar } from '@/entities/search/ui/SearchBar'
-import { ExplorerFontList } from '@/features/explorer/ui/ExplorerFontList'
+import { FilterList } from '@/features/filter/ui/FilterList'
+import { SearchBar } from '@/features/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+
+import { ExplorerFontList } from './ExplorerFontList'
 
 export const Explorer = () => {
   return (

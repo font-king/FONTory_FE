@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Bookmark } from '@/pages/Bookmark'
-import { BookmarkDetail } from '@/pages/BookmarkDetail'
-import { Explorer } from '@/pages/Explorer'
-import { ExplorerDetail } from '@/pages/ExplorerDetail'
-import { Home } from '@/pages/Home'
-import { MyFonts } from '@/pages/MyFonts'
-import { MyFontsDetail } from '@/pages/MyFontsDetail'
+import { Bookmark } from '@/pages/bookmark/ui/Bookmark'
+import { BookmarkDetail } from '@/pages/bookmark/ui/BookmarkDetail'
+import { Explorer } from '@/pages/explorer/ui/Explorer'
+import { ExplorerDetail } from '@/pages/explorer/ui/ExplorerDetail'
+import { Home } from '@/pages/home/ui/Home'
+import { MyFonts } from '@/pages/myFonts/ui/MyFonts'
+import { MyFontsDetail } from '@/pages/myFonts/ui/MyFontsDetail'
 
 export const RouterComponent = () => {
   return (

@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { FontCardWithArrow } from '@/entities/fontItem/ui/FontCardWithArrow'
-import { useToggle } from '@/shared/hook/useToggle'
+import { FontCardWithArrow } from '@/widgets/font/ui/FontCardWithArrow'
+
+import { useToggle } from '../hook/useToggle'
 
 import { SectionLayout } from './SectionLayout'
 

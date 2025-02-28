@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useToggle } from '@/shared/hook/useToggle'
 
 import { FontCardWithArrow } from './fontCard/FontCardWithArrow'
-import { ActionGroup } from './actionGroup'
 import { SectionLayout } from './SectionLayout'
 
 const RecommendedSection = ({ recommendList }) => {
@@ -28,11 +27,12 @@ const ActionGroupSection = ({ bookmarkState, isMyFont, onEdit }) => {
   }
 
   return (
-    <ActionGroup size="lg">
-      <ActionGroup.Download onClick={handleDownload} />
-      {isMyFont && <ActionGroup.Edit onClick={onEdit} />}
-      <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
-    </ActionGroup>
+    // <ActionGroup size="lg">
+    //   <ActionGroup.Download onClick={handleDownload} />
+    //   {isMyFont && <ActionGroup.Edit onClick={onEdit} />}
+    //   <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
+    // </ActionGroup>
+    <></>
   )
 }
 

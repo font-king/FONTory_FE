@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useToggle } from '@/shared/hook/useToggle'
-import { ActionGroup } from '@/shared/ui/actionGroup'
 
 export const FontCardWithActions = ({ font, onDownload, onSave }) => {
   const location = useLocation()
@@ -26,10 +25,11 @@ export const FontCardWithActions = ({ font, onDownload, onSave }) => {
         </FontInfo>
       </ProfileSection>
       <PreviewText>{font.preview}</PreviewText>
-      <ActionGroup size="sm">
+      {/* <ActionGroup size="sm">
         <ActionGroup.Download onClick={onDownload} />
         <ActionGroup.Save isSaved={isBookmarked} onClick={handleBookmark} />
-      </ActionGroup>
+      </ActionGroup> */}
+      <></>
     </LinkContainer>
   )
 }

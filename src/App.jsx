@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { RouterComponent } from './components/views/RouterComponent'
-import { SideNavbar } from './components/views/SideNavbar'
-import { colors } from './styles/palette'
+import { RouterComponent } from './app/router/RouterComponent'
+import { colors } from './app/styles/palette'
+import { SideNavbar } from './shared/ui/SideNavbar'
 
 function App() {
   return (

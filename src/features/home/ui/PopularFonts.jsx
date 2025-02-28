@@ -14,19 +14,11 @@ const dummyFonts = () => {
 }
 
 export const PopularFonts = () => {
-  const handleDownload = () => {}
-  const handleSave = () => {}
-
   return (
     <SectionLayout title="인기 폰트">
       <FontsGrid>
         {dummyFonts().map((font) => (
-          <FontItemWithButtons
-            key={font.id}
-            font={font}
-            onDownload={handleDownload}
-            onSave={handleSave}
-          />
+          <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
         ))}
       </FontsGrid>
     </SectionLayout>

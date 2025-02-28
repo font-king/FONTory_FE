@@ -1,26 +1,21 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { BookmarkButton } from './BookmarkButton'
 import { DownloadButton } from './DownloadButton'
 import { FontProfile } from './FontProfile'
 
-export const FontItemWithButtons = ({ font }) => {
-  const location = useLocation()
-  const basePath = location.pathname.startsWith('/bookmark') ? '/bookmark' : '/explorer'
+export const FontItemWithButtons = ({ basePath, font }) => (
+  <LinkContainer to={`${basePath}/detail/${font.id}`}>
+    <FontProfile size="md" fontName={font.fontName} authorName={font.authorName} />
+    <PreviewText>{font.preview}</PreviewText>
 
-  return (
-    <LinkContainer to={`${basePath}/detail/${font.id}`}>
-      <FontProfile size="md" fontName={font.fontName} authorName={font.authorName} />
-      <PreviewText>{font.preview}</PreviewText>
-
-      <ActionButtonGroup>
-        <DownloadButton />
-        <BookmarkButton initialBookmarkState={font.isBookmarked} />
-      </ActionButtonGroup>
-    </LinkContainer>
-  )
-}
+    <ActionButtonGroup>
+      <DownloadButton />
+      <BookmarkButton initialBookmarkState={font.isBookmarked} />
+    </ActionButtonGroup>
+  </LinkContainer>
+)
 
 const LinkContainer = styled(Link)`
   ${({ theme }) => `

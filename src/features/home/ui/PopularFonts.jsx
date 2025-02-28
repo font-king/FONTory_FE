@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { FontCardWithActions } from '@/shared/ui/fontCard/FontCardWithActions'
+import { FontItemWithButtons } from '@/shared/ui/FontItemWithButtons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
   return Array.from({ length: 3 }, (_, i) => ({
     id: i,
-    name: `가나다체 ${i}`,
-    designer: '고로케',
-    previewText: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
+    fontName: `가나다체 ${i}`,
+    authorName: '고로케',
+    preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
     isBookmarked: i % 2 === 0,
   }))
 }
@@ -21,7 +21,7 @@ export const PopularFonts = () => {
     <SectionLayout title="인기 폰트">
       <FontsGrid>
         {dummyFonts().map((font) => (
-          <FontCardWithActions
+          <FontItemWithButtons
             key={font.id}
             font={font}
             onDownload={handleDownload}

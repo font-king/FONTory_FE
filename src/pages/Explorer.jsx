@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-import { FontCardWithActions } from '@/shared/ui/fontCard/FontCardWithActions'
+import { FontItemWithButtons } from '@/shared/ui/FontItemWithButtons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
@@ -48,7 +48,7 @@ export const Explorer = () => {
 
       <FontGrid>
         {dummyFonts().map((font) => (
-          <FontCardWithActions
+          <FontItemWithButtons
             key={font.id}
             font={font}
             onDownload={handleDownload}

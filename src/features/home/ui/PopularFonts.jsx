@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { ContentLayout } from '@/shared/ui/ContentLayout'
 import { FontCardWithActions } from '@/shared/ui/fontCard/FontCardWithActions'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
   return Array.from({ length: 3 }, (_, i) => ({
@@ -18,7 +18,7 @@ export const PopularFonts = () => {
   const handleSave = () => {}
 
   return (
-    <ContentLayout title="인기 폰트">
+    <SectionLayout title="인기 폰트">
       <FontsGrid>
         {dummyFonts().map((font) => (
           <FontCardWithActions
@@ -29,7 +29,7 @@ export const PopularFonts = () => {
           />
         ))}
       </FontsGrid>
-    </ContentLayout>
+    </SectionLayout>
   )
 }
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { ContentLayout } from '@/shared/ui/ContentLayout'
 import { FontCardWithActions } from '@/shared/ui/fontCard/FontCardWithActions'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const createDummyFont = (id) => ({
   id,
@@ -20,7 +20,7 @@ export const Bookmark = () => {
   const handleSave = () => {}
 
   return (
-    <ContentLayout>
+    <SectionLayout>
       <BookmarkHeader>
         <div>검색창</div>
       </BookmarkHeader>
@@ -35,7 +35,7 @@ export const Bookmark = () => {
           />
         ))}
       </FontGrid>
-    </ContentLayout>
+    </SectionLayout>
   )
 }
 const BookmarkHeader = styled.div`

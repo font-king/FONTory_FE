@@ -4,7 +4,7 @@ import { useToggle } from '@/shared/hook/useToggle'
 
 import { FontCardWithArrow } from './fontCard/FontCardWithArrow'
 import { ActionGroup } from './actionGroup'
-import { ContentLayout } from './ContentLayout'
+import { SectionLayout } from './SectionLayout'
 
 const RecommendedSection = ({ recommendList }) => {
   return (
@@ -38,7 +38,7 @@ const ActionGroupSection = ({ bookmarkState, isMyFont, onEdit }) => {
 
 export const FontDetail = ({ font, isMyFont, onEdit }) => {
   return (
-    <ContentLayout>
+    <SectionLayout>
       <ProfileSection>
         <div className="profile" />
 
@@ -75,7 +75,7 @@ export const FontDetail = ({ font, isMyFont, onEdit }) => {
       </Content>
 
       <ActionGroupSection bookmarkState={font.isBookmarked} isMyFont={isMyFont} onEdit={onEdit} />
-    </ContentLayout>
+    </SectionLayout>
   )
 }
 

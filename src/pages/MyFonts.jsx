@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import { MyFontsChart } from '@/features/myFont/ui/MyFontsChart'
-import { ContentLayout } from '@/shared/ui/ContentLayout'
 import { FontCardWithArrow } from '@/shared/ui/fontCard/FontCardWithArrow'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -18,20 +18,20 @@ const dummyFonts = () => {
 export const MyFonts = () => {
   return (
     <Container>
-      <ContentLayout
+      <SectionLayout
         title="나만의 폰트 랭킹"
         subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
       >
         <MyFontsChart />
-      </ContentLayout>
+      </SectionLayout>
 
-      <ContentLayout title="내가 제작한 폰트">
+      <SectionLayout title="내가 제작한 폰트">
         <FontGrid>
           {dummyFonts().map((font) => (
             <FontCardWithArrow key={font.id} font={font} />
           ))}
         </FontGrid>
-      </ContentLayout>
+      </SectionLayout>
     </Container>
   )
 }

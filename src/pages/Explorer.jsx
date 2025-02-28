@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-import { ContentLayout } from '@/shared/ui/ContentLayout'
 import { FontCardWithActions } from '@/shared/ui/fontCard/FontCardWithActions'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -29,7 +29,7 @@ export const Explorer = () => {
   }
 
   return (
-    <ContentLayout>
+    <SectionLayout>
       <ExplorerHeader>
         <FilterList>
           {FILTER_OPTIONS.map((filter) => (
@@ -56,7 +56,7 @@ export const Explorer = () => {
           />
         ))}
       </FontGrid>
-    </ContentLayout>
+    </SectionLayout>
   )
 }
 

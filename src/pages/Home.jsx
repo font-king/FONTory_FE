@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 import { PopularFonts } from '@/features/home/ui/PopularFonts'
 import { Button } from '@/shared/ui/Button'
-import { ContentLayout } from '@/shared/ui/ContentLayout'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 export const FeatureSection = ({ title, buttonText, onButtonClick, icon }) => (
-  <ContentLayout>
+  <SectionLayout>
     <FeatureContent>
       <p className="feature-title">{title}</p>
       <FeatureButton size="lg" withArrow onClick={onButtonClick}>
@@ -15,7 +15,7 @@ export const FeatureSection = ({ title, buttonText, onButtonClick, icon }) => (
       </FeatureButton>
       {icon}
     </FeatureContent>
-  </ContentLayout>
+  </SectionLayout>
 )
 
 export const Home = () => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { FontItemWithButtons } from '@/features/fontItem/ui/FontItemWithButtons'
+import { FontItemWithButtons } from '@/entities/fontItem/ui/FontItemWithButtons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const createDummyFont = (id) => ({

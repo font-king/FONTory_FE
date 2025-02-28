@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-import { FontItemWithButtons } from '@/features/fontItem/ui/FontItemWithButtons'
+import { FontItemWithButtons } from '@/entities/fontItem/ui/FontItemWithButtons'
+import { ExplorerSearchBar } from '@/entities/fontSearch/ui/ExplorerSearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
     id: i,
-    name: `가나다체 ${i}`,
-    designer: '고로케',
+    fontName: `가나다체 ${i}`,
+    authorName: '고로케',
     preview:
       i % 2 === 0
         ? '동해물과 백두산이 마르고 닳도록 하느님이 보우하사'
@@ -22,8 +23,6 @@ const FILTER_OPTIONS = ['전체', '조회순', '북마크순']
 export const Explorer = () => {
   const [activeFilter, setActiveFilter] = useState(FILTER_OPTIONS[0])
 
-  const handleDownload = () => {}
-  const handleSave = () => {}
   const handleFilterClick = (filter) => {
     setActiveFilter(filter)
   }
@@ -43,17 +42,12 @@ export const Explorer = () => {
           ))}
         </FilterList>
 
-        <div>검색창</div>
+        <ExplorerSearchBar />
       </ExplorerHeader>
 
       <FontGrid>
         {dummyFonts().map((font) => (
-          <FontItemWithButtons
-            key={font.id}
-            font={font}
-            onDownload={handleDownload}
-            onSave={handleSave}
-          />
+          <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
         ))}
       </FontGrid>
     </SectionLayout>

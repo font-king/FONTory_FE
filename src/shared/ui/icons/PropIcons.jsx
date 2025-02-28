@@ -98,7 +98,7 @@ export const SquareCheckIcon = ({ isActive, size }) => {
 }
 
 export const ArrowRightIcon = ({ size }) => {
-  const sizeRem = size === 'lg' ? '2.8rem' : size === 'md' ? '2.4rem' : '2rem'
+  const sizeRem = size === 'lg' ? '2.6rem' : size === 'md' ? '2.4rem' : '2rem'
 
   return (
     <svg

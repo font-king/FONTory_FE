@@ -25,5 +25,5 @@ const lineHeight = {
 export const font = (size, color = 'inherit') => `
     font-size: ${fontSize[size]};
     line-height: ${lineHeight[size]};
-    color: ${color}
+    color: ${color};
 `

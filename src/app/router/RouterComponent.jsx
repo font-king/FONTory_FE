@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Bookmark } from '@/pages/bookmark/ui/Bookmark'
+import { Bookmark } from '@/pages/bookmark/Bookmark'
 import { FontDetail } from '@/pages/detail/ui/FontDetail'
 import { Explore } from '@/pages/explore/Explore'
 import { Home } from '@/pages/home/Home'

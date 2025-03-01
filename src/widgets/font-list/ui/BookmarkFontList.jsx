@@ -15,7 +15,7 @@ const dummyFonts = () => {
   }))
 }
 
-export const ExploreFontList = () => {
+export const BookmarkFontList = () => {
   const fontList = dummyFonts()
 
   if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />

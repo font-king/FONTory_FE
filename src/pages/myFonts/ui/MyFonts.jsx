@@ -1,21 +1,8 @@
-import styled from 'styled-components'
-
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { BarChart } from '@/widgets/chart/ui/BarChart'
-import { ChartLegend } from '@/widgets/chart/ui/ChartLegend'
-import { FontCardWithArrow } from '@/widgets/fontCard/ui/FontCardWithArrow'
 
-const dummyFonts = () => {
-  return Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    name: `가나다체 ${i}`,
-    preview:
-      i % 2 === 0
-        ? '동해물과 백두산이 마르고 닳도록 하느님이 보우하사'
-        : '동해물과 백두산이 마르고 닳도록 하느님이 보우하사닳도록 하느님이 보우하사',
-  }))
-}
+import { CustomFontList } from './CustomFontList'
+import { FontRankingChart } from './FontRankingChart'
 
 export const MyFonts = () => {
   return (
@@ -28,10 +15,7 @@ export const MyFonts = () => {
           </SectionLayout.SubTitle>
         </SectionLayout.TitleContainer>
 
-        <ChartContainer>
-          <BarChart />
-          <ChartLegend />
-        </ChartContainer>
+        <FontRankingChart />
       </SectionLayout>
 
       <SectionLayout>
@@ -40,20 +24,8 @@ export const MyFonts = () => {
           <SectionLayout.MoreViewButton>더보기</SectionLayout.MoreViewButton>
         </SectionLayout.MoreViewContainer>
 
-        <FontGrid>
-          {dummyFonts().map((font) => (
-            <FontCardWithArrow key={font.id} font={font} />
-          ))}
-        </FontGrid>
+        <CustomFontList />
       </SectionLayout>
     </ColumnSectionContainer>
   )
 }
-
-const FontGrid = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'md')};
-`
-
-const ChartContainer = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, '4xl')};
-`

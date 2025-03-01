@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+
 const dummyRank = [
   { name: '가나다체', bookmark: 33, download: 19 },
   { name: '마바사체', bookmark: 11, download: 23 },
@@ -8,23 +10,12 @@ const dummyRank = [
   { name: '하하하체', bookmark: 2, download: 2 },
 ]
 
-const ChartLegend = () => (
-  <LegendContainer>
-    <LegendItem>
-      <LegendBox $isBookmark />
-      <span className="legend-label">북마크 수</span>
-    </LegendItem>
-
-    <LegendItem>
-      <LegendBox />
-      <span className="legend-label">다운로드 수</span>
-    </LegendItem>
-  </LegendContainer>
-)
-
-export const BarChart = ({ data }) => {
+export const BarChart = () => {
+  const data = dummyRank
   const maxValue = Math.max(...data.flatMap((item) => [item.bookmark, item.download]))
   const gridValues = Array.from({ length: 4 }, (_, i) => Math.round(maxValue * (1 - i / 4)))
+
+  if (!data || !data.length) return <EmptyMessage message="등록된 폰트가 없습니다." />
 
   return (
     <ChartContainer>
@@ -64,38 +55,6 @@ export const BarChart = ({ data }) => {
   )
 }
 
-export const MyFontsChart = () => {
-  return (
-    <ChartSection>
-      <BarChart data={dummyRank} />
-      <ChartLegend />
-    </ChartSection>
-  )
-}
-
-const ChartSection = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, '4xl')};
-`
-
-const LegendContainer = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'xl')};
-`
-
-const LegendItem = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'sm')};
-
-  .legend-label {
-    ${({ theme }) => theme.font(900, theme.colors.grey[700])};
-  }
-`
-
-const LegendBox = styled.div`
-  width: 2rem;
-  height: 2rem;
-  background-color: ${({ theme, $isBookmark }) =>
-    $isBookmark ? theme.colors.blue[500] : theme.colors.blue[300]};
-`
-
 const BarsSection = styled.div`
   position: relative;
   flex-grow: 1;
@@ -109,40 +68,45 @@ const GridLines = styled.div`
 `
 
 const GridLine = styled.div`
-  ${({ theme }) => theme.border('chart', 'top')};
-  ${({ theme }) => theme.margin(0, 0, 0, '5rem')};
+  ${({ theme }) => `
+    ${theme.margin(0, 0, 0, '5rem')}
+    ${theme.border('chart', 'top')}
+  `}
   position: relative;
   height: 25%;
 `
 
 const GridValue = styled.span`
-  ${({ theme }) => theme.font(900, theme.colors.grey[400])};
+  ${({ theme }) => theme.font(800, theme.colors.grey[400])};
   position: absolute;
   top: -0.7rem;
   left: -5rem;
 `
 
 const BarsContainer = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'flex-end', 'space-around')};
-  ${({ theme }) => theme.margin(0, 0, 0, '4xl')};
-  ${({ theme }) => theme.border('divider', 'bottom')};
+  ${({ theme }) => `
+    ${theme.flexBox('row', 'flex-end', 'space-around')}
+    ${theme.margin(0, 0, 0, '4xl')}
+    ${theme.border('divider', 'bottom')}
+  `}
   position: relative;
   height: 100%;
   z-index: 1;
 `
 
 const StatBar = styled.div`
-  width: 3rem;
-  height: ${({ value }) => `${value}%`};
-  background-color: ${({ theme, $isBookmark }) =>
-    $isBookmark ? theme.colors.blue[500] : theme.colors.blue[300]};
-  transition: height 0.3s ease;
+  ${({ theme, value, $isBookmark }) => `
+    height: ${`${value}%`};
+    background-color: ${$isBookmark ? theme.colors.blue[500] : theme.colors.blue[300]};
+  `}
 
+  width: 3rem;
   position: relative;
   cursor: pointer;
+  transition: height 0.3s ease;
 
   &:hover::after {
-    ${({ theme }) => theme.font(900, theme.colors.grey[700])};
+    ${({ theme }) => theme.font(800, theme.colors.grey[700])};
     content: attr(data-value);
     position: absolute;
     top: -2.5rem;
@@ -165,11 +129,13 @@ const ChartContainer = styled.div`
 `
 
 const LabelsContainer = styled.div`
-  ${({ theme }) => theme.flexBox('row', 'center', 'space-around')};
-  ${({ theme }) => theme.margin(0, 0, 0, '4xl')};
+  ${({ theme }) => `
+    ${theme.flexBox('row', 'center', 'space-around')}
+    ${theme.margin(0, 0, 0, '4xl')}
+  `}
 
   .label {
-    ${({ theme }) => theme.font(600, theme.colors.grey[600])};
+    ${({ theme }) => theme.font(700, theme.colors.grey[600])};
     text-align: center;
   }
 `

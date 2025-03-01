@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
+import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { BarChart } from '@/widgets/chart/ui/BarChart'
+import { ChartLegend } from '@/widgets/chart/ui/ChartLegend'
 import { FontCardWithArrow } from '@/widgets/fontCard/ui/FontCardWithArrow'
-
-import { MyFontsChart } from './MyFontsChart'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -18,12 +19,15 @@ const dummyFonts = () => {
 
 export const MyFonts = () => {
   return (
-    <Container>
+    <ColumnSectionContainer>
       <SectionLayout
         title="나만의 폰트 랭킹"
         subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
       >
-        <MyFontsChart />
+        <ChartContainer>
+          <BarChart />
+          <ChartLegend />
+        </ChartContainer>
       </SectionLayout>
 
       <SectionLayout title="내가 제작한 폰트">
@@ -33,14 +37,14 @@ export const MyFonts = () => {
           ))}
         </FontGrid>
       </SectionLayout>
-    </Container>
+    </ColumnSectionContainer>
   )
 }
 
-const Container = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'lg')}
-`
-
 const FontGrid = styled.div`
   ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'md')};
+`
+
+const ChartContainer = styled.div`
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, '4xl')};
 `

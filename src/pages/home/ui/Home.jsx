@@ -55,7 +55,7 @@ const FeatureContent = styled.div`
   min-height: 34rem;
 
   & > h6 {
-    ${({ theme }) => theme.font(300, theme.colors.blue[600])};
+    ${({ theme }) => theme.font(200, theme.colors.blue[600])};
     white-space: pre-line;
   }
 

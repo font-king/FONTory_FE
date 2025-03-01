@@ -1,21 +1,8 @@
 import styled from 'styled-components'
 
-import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-
-const dummyRank = [
-  { name: '가나다체', bookmark: 33, download: 19 },
-  { name: '마바사체', bookmark: 11, download: 23 },
-  { name: '아자차체', bookmark: 10, download: 2 },
-  { name: '카타파체', bookmark: 3, download: 2 },
-  { name: '하하하체', bookmark: 2, download: 2 },
-]
-
-export const BarChart = () => {
-  const data = dummyRank
-  const maxValue = Math.max(...data.flatMap((item) => [item.bookmark, item.download]))
+export const BarChart = ({ chartData }) => {
+  const maxValue = Math.max(...chartData.flatMap((item) => [item.bookmark, item.download]))
   const gridValues = Array.from({ length: 4 }, (_, i) => Math.round(maxValue * (1 - i / 4)))
-
-  if (!data || !data.length) return <EmptyMessage message="등록된 폰트가 없습니다." />
 
   return (
     <ChartContainer>
@@ -28,7 +15,7 @@ export const BarChart = () => {
           ))}
         </GridLines>
         <BarsContainer>
-          {data.map((item) => (
+          {chartData.map((item) => (
             <BarGroup key={item.name}>
               <StatBar
                 value={(item.bookmark / maxValue) * 100}
@@ -45,7 +32,7 @@ export const BarChart = () => {
       </BarsSection>
 
       <LabelsContainer>
-        {data.map((item) => (
+        {chartData.map((item) => (
           <span key={item.name} className="label">
             {item.name}
           </span>

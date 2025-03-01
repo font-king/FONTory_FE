@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { FontItemWithButtons } from '@/entities/fontItem/ui/FontItemWithButtons'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { FontItemWithButtons } from '@/widgets/fontCard/ui/FontItemWithButtons'
 
 const dummyFonts = () => {
   return Array.from({ length: 3 }, (_, i) => ({
@@ -14,11 +15,15 @@ const dummyFonts = () => {
 }
 
 export const PopularFonts = () => {
+  const fontList = dummyFonts()
+
+  if (!fontList) return <EmptyMessage message="등록된 폰트가 없습니다." />
+
   return (
     <SectionLayout title="인기 폰트">
       <GridFontsContainer>
-        {dummyFonts().map((font) => (
-          <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
+        {fontList.map((font) => (
+          <FontItemWithButtons key={font.id} font={font} />
         ))}
       </GridFontsContainer>
     </SectionLayout>

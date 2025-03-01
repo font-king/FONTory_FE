@@ -1,23 +1,19 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Bookmark } from '@/pages/Bookmark'
-import { BookmarkDetail } from '@/pages/BookmarkDetail'
-import { Explorer } from '@/pages/Explorer'
-import { ExplorerDetail } from '@/pages/ExplorerDetail'
-import { Home } from '@/pages/Home'
-import { MyFonts } from '@/pages/MyFonts'
-import { MyFontsDetail } from '@/pages/MyFontsDetail'
+import { Bookmark } from '@/pages/bookmark/ui/Bookmark'
+import { FontDetail } from '@/pages/detail/ui/FontDetail'
+import { Explorer } from '@/pages/explorer/ui/Explorer'
+import { Home } from '@/pages/home/ui/Home'
+import { MyFonts } from '@/pages/myFonts/ui/MyFonts'
 
 export const RouterComponent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/explorer" element={<Explorer />} />
-      <Route path="/explorer/detail/:id" element={<ExplorerDetail />} />
       <Route path="/bookmark" element={<Bookmark />} />
-      <Route path="/bookmark/detail/:id" element={<BookmarkDetail />} />
+      <Route path="/detail/:id" element={<FontDetail />} />
       <Route path="/my-fonts" element={<MyFonts />} />
-      <Route path="/my-fonts/detail/:id" element={<MyFontsDetail />} />
     </Routes>
   )
 }

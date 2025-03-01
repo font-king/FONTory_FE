@@ -2,10 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
-import { PopularFonts } from '@/entities/fontItem/ui/PopularFonts'
 import { Button } from '@/shared/ui/Button'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+
+import { PopularFonts } from './PopularFonts'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -54,7 +55,7 @@ const FeatureContent = styled.div`
   min-height: 34rem;
 
   & > h6 {
-    ${({ theme }) => theme.font(300, theme.colors.blue[600])};
+    ${({ theme }) => theme.font(200, theme.colors.blue[600])};
     white-space: pre-line;
   }
 

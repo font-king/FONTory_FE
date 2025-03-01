@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { BookmarkButton } from '@/features/bookmark/ui/BookmarkButton'
+import { DownloadButton } from '@/features/download/ui/DownloadButton'
 import { FontProfile } from '@/shared/ui/FontProfile'
 
-import { BookmarkButton } from './BookmarkButton'
-import { DownloadButton } from './DownloadButton'
-
-export const FontItemWithButtons = ({ basePath, font }) => (
-  <LinkContainer to={`${basePath}/detail/${font.id}`}>
+export const FontItemWithButtons = ({ font }) => (
+  <LinkContainer to={`/detail/${font.id}`}>
     <FontProfile size="md" fontName={font.fontName} authorName={font.authorName} />
     <PreviewText>{font.preview}</PreviewText>
 

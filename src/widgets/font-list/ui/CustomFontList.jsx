@@ -1,6 +1,6 @@
 import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithArrow } from '@/widgets/font-item/ui/FontItemWithArrow'
+import { FontItemWithoutProfile } from '@/widgets/font-item/ui/FontItemWithoutProfile'
 
 const dummyFonts = () => {
   return Array.from({ length: 4 }, (_, i) => ({
@@ -21,7 +21,7 @@ export const CustomFontList = () => {
   return (
     <GridContainer $columns="1fr 1fr" $gap="lg">
       {fontList.map((font) => (
-        <FontItemWithArrow key={font.id} font={font} />
+        <FontItemWithoutProfile key={font.id} font={font} />
       ))}
     </GridContainer>
   )

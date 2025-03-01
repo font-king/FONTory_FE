@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { FontDeleteButton } from '@/features/deleteFont/ui/FontDeleteButton'
-import { FontEditButton } from '@/features/editFont/ui/FontEditButton'
+import { FontDeleteButton } from '@/features/delete-font/ui/FontDeleteButton'
+import { FontEditButton } from '@/features/edit-font/ui/FontEditButton'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 import { FontDetailContent } from '@/widgets/font-detail/ui/FontDetailContent'
 import { FontDetailHeader } from '@/widgets/font-detail/ui/FontDetailHeader'

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithButtons } from '@/widgets/font-item/ui/FontItemWithButtons'
+import { FontItemWithoutProfile } from '@/widgets/font-item/ui/FontItemWithoutProfile'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -11,7 +11,7 @@ const dummyFonts = () => {
     preview:
       i % 2 === 0
         ? '동해물과 백두산이 마르고 닳도록 하느님이 보우하사'
-        : '동해물과 백두산이 마르고 닳도록 하느님이 보우하사닳도록 하느님이 보우하사',
+        : '동해물과 백두산이 마르고 닳도록 하느님이 보우하사닳도록 하느님이 보우하사이 보우하사닳도록 하느님이 보우하사이 보우하사닳도록 하느님이 보우하사이 보우하사닳도록 하느님이 보우하사',
     isBookmarked: i % 2 === 0,
   }))
 }
@@ -24,7 +24,7 @@ export const MyCustomFontList = () => {
   return (
     <Container>
       {fontList.map((font) => (
-        <FontItemWithButtons key={font.id} font={font} />
+        <FontItemWithoutProfile key={font.id} font={font} />
       ))}
     </Container>
   )

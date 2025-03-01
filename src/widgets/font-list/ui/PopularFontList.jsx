@@ -1,6 +1,6 @@
 import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithButtons } from '@/widgets/font-item/ui/FontItemWithButtons'
+import { FontItemWithProfile } from '@/widgets/font-item/ui/FontItemWithProfile'
 
 const dummyFonts = () => {
   return Array.from({ length: 3 }, (_, i) => ({
@@ -20,7 +20,7 @@ export const PopularFontList = () => {
   return (
     <GridContainer $columns="1fr 1fr 1fr" $gap="lg">
       {fontList.slice(0, 3).map((font) => (
-        <FontItemWithButtons key={font.id} font={font} />
+        <FontItemWithProfile key={font.id} font={font} />
       ))}
     </GridContainer>
   )

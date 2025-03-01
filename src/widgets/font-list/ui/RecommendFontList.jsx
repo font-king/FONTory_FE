@@ -1,6 +1,6 @@
 import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithArrow } from '@/widgets/font-item/ui/FontItemWithArrow'
+import { FontItemWithoutProfile } from '@/widgets/font-item/ui/FontItemWithoutProfile'
 
 export const RecommendFontList = ({ recommendList }) => {
   if (!recommendList || !recommendList.length)
@@ -9,7 +9,7 @@ export const RecommendFontList = ({ recommendList }) => {
   return (
     <GridContainer $columns="1fr 1fr 1fr" $gap="lg">
       {recommendList.slice(0, 3).map((font, index) => (
-        <FontItemWithArrow key={index} font={font} />
+        <FontItemWithoutProfile key={index} font={font} />
       ))}
     </GridContainer>
   )

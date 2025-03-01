@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { BookmarkButton } from '@/features/bookmark/ui/BookmarkButton'
+import { DownloadButton } from '@/features/download/ui/DownloadButton'
 import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 
-export const FontItemWithArrow = ({ font }) => (
+export const FontItemWithoutProfile = ({ font }) => (
   <LinkContainer to={`/detail/${font.id}`}>
     <FontInformation>
       <FontName>{font.fontName}</FontName>
@@ -11,6 +13,11 @@ export const FontItemWithArrow = ({ font }) => (
     </FontInformation>
 
     <PreviewText>{font.preview}</PreviewText>
+
+    <ActionButtonGroup>
+      <DownloadButton />
+      <BookmarkButton initialBookmarkState={font.isBookmarked} />
+    </ActionButtonGroup>
   </LinkContainer>
 )
 
@@ -33,5 +40,10 @@ const FontName = styled.h6`
 
 const PreviewText = styled.p`
   ${({ theme }) => theme.font(700, theme.colors.grey[600])};
-  height: fit-content;
+  flex-grow: 1;
+`
+
+const ActionButtonGroup = styled.div`
+  ${({ theme }) => theme.flexBox('row', 'center', undefined, 'md')};
+  align-self: flex-end;
 `

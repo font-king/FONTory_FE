@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { colors } from '@/app/styles/palette'
 import {
   NavBookmarkIcon,
-  NavExplorerIcon,
+  NavExploreIcon,
   NavFontDesignIcon,
   NavFontSynthesisIcon,
   NavHomeIcon,
@@ -13,11 +13,11 @@ import {
 
 const NAV_LIST = [
   { label: '홈', Icon: NavHomeIcon, url: '/' },
+  { label: '둘러보기', Icon: NavExploreIcon, url: '/explore' },
   { label: '폰트 제작', Icon: NavFontDesignIcon, url: '/font-design' },
   { label: '폰트 합성', Icon: NavFontSynthesisIcon, url: '/font-synthesis' },
-  { label: '둘러보기', Icon: NavExplorerIcon, url: '/explorer' },
   { label: '북마크', Icon: NavBookmarkIcon, url: '/bookmark' },
-  { label: '내 폰트', Icon: NavMyFontIcon, url: '/my-fonts' },
+  { label: '내 폰트', Icon: NavMyFontIcon, url: '/my-font' },
 ]
 
 export const SideNavigationBar = () => {

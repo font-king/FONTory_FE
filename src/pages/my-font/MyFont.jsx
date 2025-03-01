@@ -1,10 +1,9 @@
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { FontRankingChart } from '@/widgets/chart/ui/FontRankingChart'
+import { CustomFontList } from '@/widgets/font-list/ui/CustomFontList'
 
-import { CustomFontList } from './CustomFontList'
-import { FontRankingChart } from './FontRankingChart'
-
-export const MyFonts = () => {
+export const MyFont = () => {
   return (
     <ColumnSectionContainer>
       <SectionLayout>
@@ -21,7 +20,7 @@ export const MyFonts = () => {
       <SectionLayout>
         <SectionLayout.MoreViewContainer>
           <SectionLayout.Title>내가 제작한 폰트</SectionLayout.Title>
-          <SectionLayout.MoreViewButton to="/my-fonts/custom-font">
+          <SectionLayout.MoreViewButton to="/my-font/custom-font">
             더보기
           </SectionLayout.MoreViewButton>
         </SectionLayout.MoreViewContainer>

@@ -63,7 +63,7 @@ export const NavFontSynthesisIcon = ({ isActive }) => (
   </svg>
 )
 
-export const NavExplorerIcon = ({ isActive }) => (
+export const NavExploreIcon = ({ isActive }) => (
   <svg
     width={NAV_ICON_SIZE}
     height={NAV_ICON_SIZE}

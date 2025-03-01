@@ -3,24 +3,21 @@ import styled from 'styled-components'
 import { SearchStoreProvider } from '@/features/search/model/searchProvider.provider'
 import { SearchBar } from '@/features/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { BookmarkFontList } from '@/widgets/font-list/ui/BookmarkFontList'
 
-import { MyCustomFontList } from './MyCustomFontList'
+export const Bookmark = () => (
+  <SearchStoreProvider>
+    <SectionLayout>
+      <BookmarkHeader>
+        <SearchBar />
+      </BookmarkHeader>
 
-export const MyCustomFont = () => {
-  return (
-    <SearchStoreProvider>
-      <SectionLayout>
-        <SearchBarContainer>
-          <SearchBar />
-        </SearchBarContainer>
+      <BookmarkFontList />
+    </SectionLayout>
+  </SearchStoreProvider>
+)
 
-        <MyCustomFontList />
-      </SectionLayout>
-    </SearchStoreProvider>
-  )
-}
-
-export const SearchBarContainer = styled.div`
+const BookmarkHeader = styled.div`
   ${({ theme }) => `
     ${theme.padding(0, 0, 'md')}
     ${theme.margin(0, 0, '2xl')}

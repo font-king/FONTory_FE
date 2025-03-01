@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
-import { FontDeleteButton } from '@/features/deleteFont/ui/FontDeleteButton'
-import { FontEditButton } from '@/features/editFont/ui/FontEditButton'
+import { FontDeleteButton } from '@/features/delete-font/ui/FontDeleteButton'
+import { FontEditButton } from '@/features/edit-font/ui/FontEditButton'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { FontDetailContent } from '@/widgets/fontDetail/ui/FontDetailContent'
-import { FontDetailHeader } from '@/widgets/fontDetail/ui/FontDetailHeader'
-
-import { RecommendFontList } from './RecommendFontList'
+import { FontDetailContent } from '@/widgets/font-detail/ui/FontDetailContent'
+import { FontDetailHeader } from '@/widgets/font-detail/ui/FontDetailHeader'
+import { RecommendFontList } from '@/widgets/font-list/ui/RecommendFontList'
 
 const dummyFont = {
   profile: {
@@ -55,7 +54,10 @@ export const FontDetail = () => {
             <FontDeleteButton />
           </ActionButtonGroup>
         ) : (
-          <RecommendFontList recommendList={font.recommend} />
+          <div>
+            <Label>제작자의 다른 폰트</Label>
+            <RecommendFontList recommendList={font.recommend} />
+          </div>
         )}
       </BottomContainer>
     </SectionLayout>
@@ -68,4 +70,11 @@ const ActionButtonGroup = styled.div`
 
 const BottomContainer = styled.div`
   ${({ theme }) => theme.margin('4xl', 0, 0)}
+`
+
+const Label = styled.p`
+  ${({ theme }) => `
+    ${theme.margin(0, 0, 'md')}
+    ${theme.font(500, theme.colors.blue[500])}
+  `}
 `

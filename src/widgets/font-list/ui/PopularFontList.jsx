@@ -16,7 +16,7 @@ const dummyFonts = () => {
 export const PopularFontList = () => {
   const fontList = dummyFonts()
 
-  if (!fontList || !fontList.length) return <EmptyMessage message="등록된 폰트 목록이 없습니다." />
+  if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
 
   return (
     <Container>

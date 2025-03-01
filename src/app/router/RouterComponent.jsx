@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { Bookmark } from '@/pages/bookmark/ui/Bookmark'
 import { FontDetail } from '@/pages/detail/ui/FontDetail'
-import { Explorer } from '@/pages/explorer/ui/Explorer'
+import { Explore } from '@/pages/explore/Explore'
 import { Home } from '@/pages/home/Home'
 import { FontDesignProgress } from '@/pages/myFonts/ui/FontDesignProgress'
 import { MyCustomFont } from '@/pages/myFonts/ui/MyCustomFont'
@@ -12,7 +12,7 @@ export const RouterComponent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/explorer" element={<Explorer />} />
+      <Route path="/explore" element={<Explore />} />
       <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/detail/:id" element={<FontDetail />} />
       <Route path="/my-fonts" element={<MyFonts />} />

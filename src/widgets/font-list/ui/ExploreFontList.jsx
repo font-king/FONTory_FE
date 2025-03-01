@@ -16,10 +16,10 @@ const dummyFonts = () => {
   }))
 }
 
-export const ExplorerFontList = () => {
+export const ExploreFontList = () => {
   const fontList = dummyFonts()
 
-  if (!fontList) return <EmptyMessage message="등록된 폰트가 없습니다." />
+  if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
 
   return (
     <Container>

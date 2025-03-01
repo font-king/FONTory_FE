@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+
 const dummyData = [
   { fontName: '가나다체', createdAt: '2025.03.21', status: '제작 중' },
   { fontName: '가나다체', createdAt: '2025.03.21', status: '제작 중' },
@@ -11,6 +13,8 @@ const dummyData = [
 
 export const FontProgressTable = () => {
   const progressData = dummyData
+
+  if (!dummyData || !dummyData.length) return <EmptyMessage message="제작한 폰트가 없습니다." />
 
   return (
     <StyledTable>

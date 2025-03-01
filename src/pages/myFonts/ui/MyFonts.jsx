@@ -21,7 +21,9 @@ export const MyFonts = () => {
       <SectionLayout>
         <SectionLayout.MoreViewContainer>
           <SectionLayout.Title>내가 제작한 폰트</SectionLayout.Title>
-          <SectionLayout.MoreViewButton>더보기</SectionLayout.MoreViewButton>
+          <SectionLayout.MoreViewButton to="/my-fonts/custom-font">
+            더보기
+          </SectionLayout.MoreViewButton>
         </SectionLayout.MoreViewContainer>
 
         <CustomFontList />

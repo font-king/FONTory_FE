@@ -1,30 +1,27 @@
 import styled from 'styled-components'
 
-import { FilterList } from '@/features/filter/ui/FilterList'
 import { SearchStoreProvider } from '@/features/search/model/searchProvider.provider'
 import { SearchBar } from '@/features/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-import { ExplorerFontList } from './ExplorerFontList'
+import { MyCustomFontList } from './MyCustomFontList'
 
-export const Explorer = () => {
+export const MyCustomFont = () => {
   return (
     <SearchStoreProvider>
       <SectionLayout>
-        <ExplorerHeader>
-          <FilterList />
+        <SearchBarContainer>
           <SearchBar />
-        </ExplorerHeader>
+        </SearchBarContainer>
 
-        <ExplorerFontList />
+        <MyCustomFontList />
       </SectionLayout>
     </SearchStoreProvider>
   )
 }
 
-const ExplorerHeader = styled.div`
+export const SearchBarContainer = styled.div`
   ${({ theme }) => `
-    ${theme.gridBox('1fr 1fr', undefined, 'center')}
     ${theme.padding(0, 0, 'md')}
     ${theme.margin(0, 0, '2xl')}
     ${theme.border('divider', 'bottom')}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.section`
@@ -25,7 +26,7 @@ const SubTitle = styled.h5`
   ${({ theme }) => theme.font(800, theme.colors.grey[500])}
 `
 
-const MoreViewButton = styled.button`
+const MoreViewButton = styled(Link)`
   ${({ theme }) => `
     ${theme.font(700, theme.colors.grey[600])}
     ${theme.padding(0, 0, 'xs')}

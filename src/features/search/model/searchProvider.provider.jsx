@@ -1,4 +1,5 @@
-import { modalStore } from './modal.store'
+import { modalStore } from '@/shared/model/modal.store'
+
 import { SearchStoreContext } from './search.store'
 
 export const SearchStoreProvider = ({ children }) => {

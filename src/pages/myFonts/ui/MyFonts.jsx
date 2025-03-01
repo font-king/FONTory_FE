@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { FontCardWithArrow } from '@/widgets/font/ui/FontCardWithArrow'
+import { FontCardWithArrow } from '@/widgets/fontCard/ui/FontCardWithArrow'
 
 import { MyFontsChart } from './MyFontsChart'
 

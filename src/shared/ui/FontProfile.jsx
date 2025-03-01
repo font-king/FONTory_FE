@@ -24,12 +24,13 @@ const sizeStyles = {
   },
   lg: {
     profileSize: '10rem',
-    containerGap: '40rem',
+    containerGap: '4rem',
     textGap: 'md',
-    fontSizeFontName: 100,
+    fontSizeFontName: 200,
     fontSizeAuthorName: 400,
   },
 }
+
 const Container = styled.div`
   ${({ theme, $size }) => theme.flexBox('row', 'center', undefined, sizeStyles[$size].containerGap)}
 `

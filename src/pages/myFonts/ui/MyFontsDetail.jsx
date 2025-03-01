@@ -5,9 +5,9 @@ import { useBoolean } from '@/shared/hook/useBoolean'
 import { useFontEditForm } from '@/shared/hook/useForms'
 import { FORM_ATTRIBUTE } from '@/shared/lib/constants'
 import { Button } from '@/shared/ui/Button'
-import { FontDetail } from '@/shared/ui/FontDetail'
 import { InputGroup } from '@/shared/ui/inputGroup'
 import { Modal } from '@/shared/ui/Modal'
+import { FontDetailContent } from '@/widgets/font/ui/FontDetailContent'
 
 const dummyFont = {
   profile: {
@@ -60,7 +60,7 @@ export const MyFontsDetail = () => {
 
   return (
     <>
-      <FontDetail isMyFont font={dummyFont} onEdit={openModal} />
+      <FontDetailContent isMyFont font={dummyFont} onEdit={openModal} />
       <FontEditModal
         isOpen={isModalOpen}
         closeModal={closeModal}

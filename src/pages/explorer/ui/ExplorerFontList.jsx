@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithButtons } from '@/widgets/font/ui/FontItemWithButtons'
+import { FontItemWithButtons } from '@/widgets/fontCard/ui/FontItemWithButtons'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -24,7 +24,7 @@ export const ExplorerFontList = () => {
   return (
     <Container>
       {fontList.map((font) => (
-        <FontItemWithButtons key={font.id} font={font} basePath="/explorer" />
+        <FontItemWithButtons key={font.id} font={font} />
       ))}
     </Container>
   )

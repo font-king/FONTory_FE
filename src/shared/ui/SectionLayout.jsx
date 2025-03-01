@@ -15,8 +15,11 @@ export const SectionLayout = ({ title, subTitle, children }) => {
 }
 
 const Container = styled.section`
-  ${({ theme }) => theme.padding('xl')};
-  ${({ theme }) => theme.borderRadius('container')};
+  ${({ theme }) => `
+    ${theme.padding('xl')}
+    ${theme.borderRadius('container')}
+    `}
+  position: relative;
   height: fit-content;
   background-color: white;
 `

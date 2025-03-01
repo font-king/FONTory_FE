@@ -5,7 +5,8 @@ import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { Button } from '@/shared/ui/Button'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { PopularFonts } from '@/widgets/home/ui/PopularFonts'
+
+import { PopularFonts } from './PopularFonts'
 
 export const Home = () => {
   const navigate = useNavigate()

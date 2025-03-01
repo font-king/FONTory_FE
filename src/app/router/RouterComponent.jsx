@@ -4,9 +4,9 @@ import { Bookmark } from '@/pages/bookmark/Bookmark'
 import { FontDetail } from '@/pages/detail/FontDetail'
 import { Explore } from '@/pages/explore/Explore'
 import { Home } from '@/pages/home/Home'
+import { FontDesignProgress } from '@/pages/my-font/FontDesignProgress'
 import { MyCustomFont } from '@/pages/my-font/MyCustomFont'
 import { MyFont } from '@/pages/my-font/MyFont'
-import { FontDesignProgress } from '@/pages/myFonts/FontDesignProgress'
 
 export const RouterComponent = () => {
   return (

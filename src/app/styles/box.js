@@ -22,7 +22,8 @@ const borderSize = {
   0: 'none',
   divider: `0.1rem solid ${colors.grey[300]}`,
   input: `0.1rem solid ${colors.grey[300]}`,
-  chart: `1px dashed ${colors.grey[300]}`,
+  chart: `0.1rem dashed ${colors.grey[300]}`,
+  moreView: `0.1rem solid ${colors.grey[500]}`,
 }
 
 const borderRadiusSize = {

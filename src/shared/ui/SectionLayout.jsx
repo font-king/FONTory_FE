@@ -1,19 +1,5 @@
 import styled from 'styled-components'
 
-export const SectionLayout = ({ title, subTitle, children }) => {
-  return (
-    <Container>
-      {title && (
-        <TitleContainer>
-          <Title>{title}</Title>
-          {subTitle && <SubTitle>{subTitle}</SubTitle>}
-        </TitleContainer>
-      )}
-      {children}
-    </Container>
-  )
-}
-
 const Container = styled.section`
   ${({ theme }) => `
     ${theme.padding('xl')}
@@ -25,15 +11,39 @@ const Container = styled.section`
 `
 
 const TitleContainer = styled.div`
-  ${({ theme }) => theme.margin(0, 0, '4xl')};
+  ${({ theme }) => `
+    ${theme.flexBox('column', undefined, undefined, 'md')}
+    ${theme.margin(0, 0, '4xl')}
+  `}
 `
+
 const Title = styled.h4`
-  ${({ theme }) => theme.font(400)};
+  ${({ theme }) => theme.font(400)}
 `
 
 const SubTitle = styled.h5`
+  ${({ theme }) => theme.font(800, theme.colors.grey[500])}
+`
+
+const MoreViewButton = styled.button`
   ${({ theme }) => `
-    ${theme.margin('md', 0, 0)};
-    ${theme.font(800, theme.colors.grey[500])}
+    ${theme.font(700, theme.colors.grey[600])}
+    ${theme.padding(0, 0, 'xs')}
+    ${theme.border('moreView', 'bottom')}
   `}
 `
+
+const MoreViewContainer = styled.div`
+  ${({ theme }) => `
+    ${theme.flexBox('row', 'center', 'space-between')}
+    ${theme.margin(0, 0, '4xl')}
+  `}
+`
+
+export const SectionLayout = Object.assign(Container, {
+  Title,
+  SubTitle,
+  TitleContainer,
+  MoreViewButton,
+  MoreViewContainer,
+})

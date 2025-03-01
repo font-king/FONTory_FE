@@ -20,17 +20,26 @@ const dummyFonts = () => {
 export const MyFonts = () => {
   return (
     <ColumnSectionContainer>
-      <SectionLayout
-        title="나만의 폰트 랭킹"
-        subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
-      >
+      <SectionLayout>
+        <SectionLayout.TitleContainer>
+          <SectionLayout.Title>나만의 폰트 랭킹</SectionLayout.Title>
+          <SectionLayout.SubTitle>
+            북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트
+          </SectionLayout.SubTitle>
+        </SectionLayout.TitleContainer>
+
         <ChartContainer>
           <BarChart />
           <ChartLegend />
         </ChartContainer>
       </SectionLayout>
 
-      <SectionLayout title="내가 제작한 폰트">
+      <SectionLayout>
+        <SectionLayout.MoreViewContainer>
+          <SectionLayout.Title>내가 제작한 폰트</SectionLayout.Title>
+          <SectionLayout.MoreViewButton>더보기</SectionLayout.MoreViewButton>
+        </SectionLayout.MoreViewContainer>
+
         <FontGrid>
           {dummyFonts().map((font) => (
             <FontCardWithArrow key={font.id} font={font} />

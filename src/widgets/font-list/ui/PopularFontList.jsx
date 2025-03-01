@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-
+import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
 import { FontItemWithButtons } from '@/widgets/font-item/ui/FontItemWithButtons'
 
@@ -19,14 +18,10 @@ export const PopularFontList = () => {
   if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
 
   return (
-    <Container>
+    <GridContainer $columns="1fr 1fr 1fr" $gap="lg">
       {fontList.slice(0, 3).map((font) => (
         <FontItemWithButtons key={font.id} font={font} />
       ))}
-    </Container>
+    </GridContainer>
   )
 }
-
-const Container = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr 1fr', undefined, undefined, undefined, 'md')}
-`

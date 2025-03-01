@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 
-export const FontCardWithArrow = ({ font }) => (
+export const FontItemWithArrow = ({ font }) => (
   <LinkContainer to={`/detail/${font.id}`}>
     <FontInformation>
       <FontName className="font-name">{font.name}</FontName>

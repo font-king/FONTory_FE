@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { Bookmark } from '@/pages/bookmark/Bookmark'
-import { FontDetail } from '@/pages/detail/ui/FontDetail'
+import { FontDetail } from '@/pages/detail/FontDetail'
 import { Explore } from '@/pages/explore/Explore'
 import { Home } from '@/pages/home/Home'
 import { FontDesignProgress } from '@/pages/myFonts/ui/FontDesignProgress'

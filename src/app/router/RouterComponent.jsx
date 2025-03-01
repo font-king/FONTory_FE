@@ -4,9 +4,9 @@ import { Bookmark } from '@/pages/bookmark/Bookmark'
 import { FontDetail } from '@/pages/detail/FontDetail'
 import { Explore } from '@/pages/explore/Explore'
 import { Home } from '@/pages/home/Home'
+import { MyFont } from '@/pages/my-font/MyFont'
 import { FontDesignProgress } from '@/pages/myFonts/ui/FontDesignProgress'
 import { MyCustomFont } from '@/pages/myFonts/ui/MyCustomFont'
-import { MyFonts } from '@/pages/myFonts/ui/MyFonts'
 
 export const RouterComponent = () => {
   return (
@@ -15,9 +15,9 @@ export const RouterComponent = () => {
       <Route path="/explore" element={<Explore />} />
       <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/detail/:id" element={<FontDetail />} />
-      <Route path="/my-fonts" element={<MyFonts />} />
-      <Route path="/my-fonts/custom-font" element={<MyCustomFont />} />
-      <Route path="/my-fonts/font-design-progress" element={<FontDesignProgress />} />
+      <Route path="/my-font" element={<MyFont />} />
+      <Route path="/my-font/custom-font" element={<MyCustomFont />} />
+      <Route path="/my-font/font-design-progress" element={<FontDesignProgress />} />
     </Routes>
   )
 }

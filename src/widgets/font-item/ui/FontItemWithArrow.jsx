@@ -6,7 +6,7 @@ import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 export const FontItemWithArrow = ({ font }) => (
   <LinkContainer to={`/detail/${font.id}`}>
     <FontInformation>
-      <FontName className="font-name">{font.name}</FontName>
+      <FontName>{font.fontName}</FontName>
       <CaretRightIcon />
     </FontInformation>
 

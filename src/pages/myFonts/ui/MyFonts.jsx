@@ -1,46 +1,33 @@
-import styled from 'styled-components'
-
+import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { FontCardWithArrow } from '@/widgets/fontCard/ui/FontCardWithArrow'
 
-import { MyFontsChart } from './MyFontsChart'
-
-const dummyFonts = () => {
-  return Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    name: `가나다체 ${i}`,
-    preview:
-      i % 2 === 0
-        ? '동해물과 백두산이 마르고 닳도록 하느님이 보우하사'
-        : '동해물과 백두산이 마르고 닳도록 하느님이 보우하사닳도록 하느님이 보우하사',
-  }))
-}
+import { CustomFontList } from './CustomFontList'
+import { FontRankingChart } from './FontRankingChart'
 
 export const MyFonts = () => {
   return (
-    <Container>
-      <SectionLayout
-        title="나만의 폰트 랭킹"
-        subTitle="북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트"
-      >
-        <MyFontsChart />
+    <ColumnSectionContainer>
+      <SectionLayout>
+        <SectionLayout.TitleContainer>
+          <SectionLayout.Title>나만의 폰트 랭킹</SectionLayout.Title>
+          <SectionLayout.SubTitle>
+            북마크 수와 다운로드 수가 가장 많은 상위 5개 폰트
+          </SectionLayout.SubTitle>
+        </SectionLayout.TitleContainer>
+
+        <FontRankingChart />
       </SectionLayout>
 
-      <SectionLayout title="내가 제작한 폰트">
-        <FontGrid>
-          {dummyFonts().map((font) => (
-            <FontCardWithArrow key={font.id} font={font} />
-          ))}
-        </FontGrid>
+      <SectionLayout>
+        <SectionLayout.MoreViewContainer>
+          <SectionLayout.Title>내가 제작한 폰트</SectionLayout.Title>
+          <SectionLayout.MoreViewButton to="/my-fonts/custom-font">
+            더보기
+          </SectionLayout.MoreViewButton>
+        </SectionLayout.MoreViewContainer>
+
+        <CustomFontList />
       </SectionLayout>
-    </Container>
+    </ColumnSectionContainer>
   )
 }
-
-const Container = styled.div`
-  ${({ theme }) => theme.flexBox('column', undefined, undefined, 'lg')}
-`
-
-const FontGrid = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'md')};
-`

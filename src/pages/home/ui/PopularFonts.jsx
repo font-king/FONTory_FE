@@ -20,7 +20,11 @@ export const PopularFonts = () => {
   if (!fontList) return <EmptyMessage message="등록된 폰트가 없습니다." />
 
   return (
-    <SectionLayout title="인기 폰트">
+    <SectionLayout>
+      <SectionLayout.TitleContainer>
+        <SectionLayout.Title>인기 폰트</SectionLayout.Title>
+      </SectionLayout.TitleContainer>
+
       <GridFontsContainer>
         {fontList.map((font) => (
           <FontItemWithButtons key={font.id} font={font} />

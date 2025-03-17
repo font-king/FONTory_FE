@@ -17,7 +17,7 @@ export const instance = new HttpClient({
   baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authentication: ETC_CODE,
+    Authorization: ETC_CODE,
   },
   withCredentials: true,
 })

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { HttpClient } from './HttpClient'
+import HttpClient from './HttpClient'
 
 const BASE_URL = import.meta.env.VITE_PUBLIC_SERVER_DOMAIN
 

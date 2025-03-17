@@ -46,7 +46,7 @@ export const FontDetail = () => {
 
   const { id } = useParams()
 
-  const { data, isPending, isError } = useFetchFontDetail(1)
+  const { data, isPending, isError } = useFetchFontDetail(id)
 
   console.log(id, data)
 

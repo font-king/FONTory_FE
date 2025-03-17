@@ -7,7 +7,7 @@ export const fontQueryKeys = {
   detail: (fontId) => [...fontQueryKeys.all, 'detail', fontId],
 }
 
-export const useFetchFontDetail = ({ fontId }) =>
+export const useFetchFontDetail = (fontId) =>
   useSuspenseQuery({
     queryKey: fontQueryKeys.detail(fontId),
     queryFn: () => instance.get(`/fonts/${fontId}`),

@@ -4,7 +4,7 @@ import { FilterList } from '@/features/filter/ui/FilterList'
 import { SearchStoreProvider } from '@/features/search/model/searchProvider.provider'
 import { SearchBar } from '@/features/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { ExploreFontList } from '@/widgets/font-list/ui/ExploreFontList'
+import { ExploreFontList } from '@/widgets/font-list/ExploreFontList'
 
 export const Explore = () => {
   return (

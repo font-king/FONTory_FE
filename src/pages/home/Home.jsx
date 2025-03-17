@@ -1,10 +1,8 @@
-import styled from 'styled-components'
-
-import { ColumnSectionContainer } from '@/app/styles/commonStyle'
+import { ColumnSectionContainer, GridContainer } from '@/app/styles/commonStyle'
 import { CirclePencilIcon, ShuffleIcon } from '@/shared/ui/icons/NonPropIcons'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { PopularFontList } from '@/widgets/font-list/ui/PopularFontList'
-import { NavigationCard } from '@/widgets/navigation-card/ui/NavigationCard'
+import { NavigationCard } from '@/widgets/card/NavigationCard'
+import { PopularFontList } from '@/widgets/font-list/PopularFontList'
 
 export const Home = () => (
   <ColumnSectionContainer>
@@ -16,7 +14,7 @@ export const Home = () => (
       <PopularFontList />
     </SectionLayout>
 
-    <GridContainer>
+    <GridContainer $columns="1fr 1fr" $gap="xl">
       <NavigationCard
         label={`나만의 폰트를\n제작하고 공유하기`}
         to={'/font-design'}
@@ -32,7 +30,3 @@ export const Home = () => (
     </GridContainer>
   </ColumnSectionContainer>
 )
-
-const GridContainer = styled.div`
-  ${({ theme }) => theme.gridBox('1fr 1fr', undefined, undefined, undefined, 'xl')}
-`

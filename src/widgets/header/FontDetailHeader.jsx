@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { BookmarkButton } from '@/features/bookmark/ui/BookmarkButton'
-import { DownloadButton } from '@/features/download/ui/DownloadButton'
+import { BookmarkButton } from '@/features/bookmark-font/ui/BookmarkButton'
+import { DownloadButton } from '@/features/download-font/ui/DownloadButton'
 import { FontProfile } from '@/shared/ui/FontProfile'
 
 export const FontDetailHeader = ({ fontName, authorName }) => {

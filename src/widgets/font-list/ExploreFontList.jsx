@@ -1,6 +1,7 @@
 import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithProfile } from '@/widgets/font-item/ui/FontItemWithProfile'
+
+import { FontItemWithProfile } from './item/FontItemWithProfile'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({
@@ -15,7 +16,7 @@ const dummyFonts = () => {
   }))
 }
 
-export const BookmarkFontList = () => {
+export const ExploreFontList = () => {
   const fontList = dummyFonts()
 
   if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />

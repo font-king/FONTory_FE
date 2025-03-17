@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithoutProfile } from '@/widgets/font-item/ui/FontItemWithoutProfile'
+
+import { FontItemWithoutProfile } from './item/FontItemWithoutProfile'
 
 const dummyFonts = () => {
   return Array.from({ length: 8 }, (_, i) => ({

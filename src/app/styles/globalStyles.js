@@ -5,14 +5,14 @@ import { inputStyle } from './input'
 const GlobalStyles = createGlobalStyle`
 	@font-face {
 		font-family: Moneygraphy;
-    src: url('/src/assets/fonts/Moneygraphy-Rounded.ttf') format('truetype');
+    src: url('/fonts/Moneygraphy-Rounded.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
 	}
 
 	@font-face {
     font-family: Jalnan;
-    src: url('/src/assets/fonts/JALNAN2TTF.TTF') format('truetype');
+    src: url('/fonts/JALNAN2TTF.TTF') format('truetype');
     font-style: normal;
     font-display: swap;
   }

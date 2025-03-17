@@ -1,7 +1,7 @@
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 import { FontRankingChart } from '@/widgets/chart/ui/FontRankingChart'
-import { CustomFontList } from '@/widgets/font-list/ui/CustomFontList'
+import { CustomFontList } from '@/widgets/font-list/CustomFontList'
 
 export const MyFont = () => {
   return (

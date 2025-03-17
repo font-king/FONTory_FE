@@ -1,6 +1,6 @@
 import { GridContainer } from '@/app/styles/commonStyle'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontItemWithoutProfile } from '@/widgets/font-item/ui/FontItemWithoutProfile'
+import { FontItemWithoutProfile } from '@/widgets/font-list/item/FontItemWithoutProfile'
 
 export const RecommendFontList = ({ recommendList }) => {
   if (!recommendList || !recommendList.length)

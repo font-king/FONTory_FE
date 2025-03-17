@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { SearchStoreProvider } from '@/features/search/model/searchProvider.provider'
 import { SearchBar } from '@/features/search/ui/SearchBar'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
-import { BookmarkFontList } from '@/widgets/font-list/ui/BookmarkFontList'
+import { BookmarkFontList } from '@/widgets/font-list/BookmarkFontList'
 
 export const Bookmark = () => (
   <SearchStoreProvider>

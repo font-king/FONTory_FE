@@ -7,12 +7,13 @@ import { FontProfile } from '@/shared/ui/FontProfile'
 
 export const FontItemWithProfile = ({ font }) => (
   <LinkContainer to={`/detail/${font.id}`}>
-    <FontProfile size="md" fontName={font.fontName} authorName={font.authorName} />
-    <PreviewText>{font.preview}</PreviewText>
+    <FontProfile size="md" fontName={font.name} authorName={font.writerName} />
+    <PreviewText>{font.example}</PreviewText>
 
     <ActionButtonGroup>
       <DownloadButton />
-      <BookmarkButton initialBookmarkState={font.isBookmarked} />
+      <BookmarkButton initialBookmarkState={false} />
+      {/* <BookmarkButton initialBookmarkState={font.isBookmarked} /> */}
     </ActionButtonGroup>
   </LinkContainer>
 )
@@ -29,7 +30,8 @@ const LinkContainer = styled(Link)`
 const PreviewText = styled.p`
   ${({ theme }) => theme.font(500, theme.colors.grey[600])};
   flex-grow: 1;
-  height: fit-content;
+  overflow: hidden;
+  word-wrap: break-word;
 `
 
 const ActionButtonGroup = styled.div`

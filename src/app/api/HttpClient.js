@@ -13,6 +13,26 @@ class HttpClient {
     this.client.interceptors.response.use(this.onResponse, this.onError)
   }
 
+  get(...args) {
+    return this.client.get(...args)
+  }
+
+  post(...args) {
+    return this.client.post(...args)
+  }
+
+  put(...args) {
+    return this.client.put(...args)
+  }
+
+  patch(...args) {
+    return this.client.patch(...args)
+  }
+
+  delete(...args) {
+    return this.client.delete(...args)
+  }
+
   setAccessToken(token) {
     this.accessToken = token
   }

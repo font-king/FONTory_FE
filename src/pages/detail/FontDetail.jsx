@@ -1,5 +1,7 @@
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { useFetchFontDetail } from '@/entities/font/api/useFont.query'
 import { FontDeleteButton } from '@/features/delete-font/ui/FontDeleteButton'
 import { FontEditButton } from '@/features/edit-font/ui/FontEditButton'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
@@ -41,6 +43,12 @@ const dummyFont = {
 export const FontDetail = () => {
   const font = dummyFont
   const isMyFont = false
+
+  const { id } = useParams()
+
+  const { data } = useFetchFontDetail(id)
+
+  console.log(id, data)
 
   return (
     <SectionLayout>

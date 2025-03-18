@@ -47,6 +47,7 @@ const BasicButton = styled.button`
     ${theme.borderRadius(SIZE_STYLES[size].rounded)}
     
     display: ${$withArrow ? 'flex' : 'inline-block'};
+    align-items: ${$withArrow && 'center'};
     gap: ${$withArrow && '1.2rem'};
     padding: ${SIZE_STYLES[size].padding};
   `}

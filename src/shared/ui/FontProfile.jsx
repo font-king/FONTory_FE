@@ -42,14 +42,19 @@ const ProfileImage = styled.div`
       width: ${sizeStyles[$size].profileSize};
       height: ${sizeStyles[$size].profileSize};
     `}
+  flex-shrink: 0;
 `
 
 const ProfileInformation = styled.div`
   ${({ theme, $size }) => theme.flexBox('column', undefined, undefined, sizeStyles[$size].textGap)}
+  overflow: hidden;
 `
 
 const FontName = styled.h6`
   ${({ theme, $size }) => theme.font(sizeStyles[$size].fontSizeFontName)}
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 
 const AuthorName = styled.p`

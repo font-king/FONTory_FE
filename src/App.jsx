@@ -1,9 +1,11 @@
 import { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { RouterComponent } from './app/router/RouterComponent'
 import { colors } from './app/styles/palette'
+import { ErrorFallback } from './shared/ui/ErrorFallback'
 import { Loading } from './shared/ui/Loading'
 import { SideNavigationBar } from './shared/ui/SideNavigationBar'
 
@@ -19,9 +21,11 @@ function App() {
       <Main>
         <SideNavigationBar />
 
-        <Suspense fallback={<Loading />}>
-          <RouterComponent />
-        </Suspense>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Suspense fallback={<Loading />}>
+            <RouterComponent />
+          </Suspense>
+        </ErrorBoundary>
 
         <div>3</div>
       </Main>

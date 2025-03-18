@@ -46,11 +46,9 @@ export const FontDetail = () => {
 
   const { id } = useParams()
 
-  const { data, isPending, isError } = useFetchFontDetail(id)
+  const { data } = useFetchFontDetail(id)
 
   console.log(id, data)
-
-  if (isPending || isError) return null
 
   return (
     <SectionLayout>

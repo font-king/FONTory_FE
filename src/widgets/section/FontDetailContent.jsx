@@ -1,23 +1,23 @@
 import styled from 'styled-components'
 
-export const FontDetailContent = ({ font }) => {
+export const FontDetailContent = ({ example, bookmarkCount, downloadCount }) => {
   return (
     <Container>
       <StatsContainer>
         <StatGroup>
           <Label>북마크 수</Label>
-          <StatValue>{font.bookmark}회</StatValue>
+          <StatValue>{bookmarkCount}회</StatValue>
         </StatGroup>
 
         <StatGroup>
           <Label>다운로드 수</Label>
-          <StatValue>{font.bookmark}회</StatValue>
+          <StatValue>{downloadCount}회</StatValue>
         </StatGroup>
       </StatsContainer>
 
       <Group>
         <Label>예시 문구</Label>
-        <TextArea readOnly value={font.preview} />
+        <TextArea readOnly value={example} />
       </Group>
 
       <Group>

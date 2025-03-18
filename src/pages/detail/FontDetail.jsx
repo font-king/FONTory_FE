@@ -9,51 +9,25 @@ import { RecommendFontList } from '@/widgets/font-list/RecommendFontList'
 import { FontDetailHeader } from '@/widgets/header/FontDetailHeader'
 import { FontDetailContent } from '@/widgets/section/FontDetailContent'
 
-const dummyFont = {
-  profile: {
-    fontName: '가나다체',
-    authorName: '고로케',
-  },
-  bookmark: 32,
-  download: 422,
-  preview: '동해물과 백두산이 마르고 닳도록',
-  isBookmarked: false,
-  recommend: [
-    {
-      id: 0,
-      name: '가나다체',
-      designer: '고로케',
-      preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-    },
-    {
-      id: 1,
-      name: '가나다체',
-      designer: '고로케',
-      preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-    },
-    {
-      id: 2,
-      name: '가나다체',
-      designer: '고로케',
-      preview: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사',
-    },
-  ],
-}
-
 export const FontDetail = () => {
-  const font = dummyFont
   const isMyFont = false
-
   const { id } = useParams()
 
-  const { data } = useFetchFontDetail(id)
+  const queries = useFetchFontDetail(id)
 
-  console.log(id, data)
+  const font = queries[0].data
+  const recommendList = queries[1].data || []
+
+  const { name, writerName, example, bookmarkCount, downloadCount } = font
 
   return (
     <SectionLayout>
-      <FontDetailHeader fontName={font.profile.fontName} authorName={font.profile.authorName} />
-      <FontDetailContent font={font} />
+      <FontDetailHeader fontName={name} authorName={writerName} />
+      <FontDetailContent
+        bookmarkCount={bookmarkCount}
+        downloadCount={downloadCount}
+        example={example}
+      />
 
       <BottomContainer>
         {isMyFont ? (
@@ -64,7 +38,7 @@ export const FontDetail = () => {
         ) : (
           <div>
             <Label>제작자의 다른 폰트</Label>
-            <RecommendFontList recommendList={font.recommend} />
+            <RecommendFontList recommendList={recommendList} />
           </div>
         )}
       </BottomContainer>

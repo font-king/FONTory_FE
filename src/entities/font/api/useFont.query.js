@@ -1,10 +1,11 @@
-import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
+import { useSuspenseInfiniteQuery, useSuspenseQueries } from '@tanstack/react-query'
 
 import { instance } from '@/app/api'
 
 export const fontQueryKeys = {
   all: ['fonts'],
   detail: (fontId) => [...fontQueryKeys.all, 'detail', fontId],
+  recommendList: (fontId) => [...fontQueryKeys.all, 'recommend', fontId],
   exploreList: () => [...fontQueryKeys.all, 'explore'],
 }
 
@@ -21,12 +22,6 @@ const ENDPOINTS = {
   },
 }
 
-export const useFetchFontDetail = (fontId) =>
-  useSuspenseQuery({
-    queryKey: fontQueryKeys.detail(fontId),
-    queryFn: () => instance.get(`/fonts/${fontId}`),
-  })
-
 export const useFetchExploreFontList = (sortBy, keyword) =>
   useSuspenseInfiniteQuery({
     queryKey: fontQueryKeys.exploreList(),
@@ -36,4 +31,18 @@ export const useFetchExploreFontList = (sortBy, keyword) =>
     gcTime: 0,
     staleTime: 0,
     select: (data) => data.pages.flatMap((arr) => arr.content) || [],
+  })
+
+export const useFetchFontDetail = (fontId) =>
+  useSuspenseQueries({
+    queries: [
+      {
+        queryKey: fontQueryKeys.detail(fontId),
+        queryFn: () => instance.get(`/fonts/${fontId}`),
+      },
+      {
+        queryKey: fontQueryKeys.recommendList(fontId),
+        queryFn: () => instance.get(`/fonts/${fontId}/others`),
+      },
+    ],
   })

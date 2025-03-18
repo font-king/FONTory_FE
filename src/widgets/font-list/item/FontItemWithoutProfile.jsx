@@ -5,21 +5,25 @@ import { BookmarkButton } from '@/features/bookmark-font/ui/BookmarkButton'
 import { DownloadButton } from '@/features/download-font/ui/DownloadButton'
 import { CaretRightIcon } from '@/shared/ui/icons/NonPropIcons'
 
-export const FontItemWithoutProfile = ({ font }) => (
-  <LinkContainer to={`/detail/${font.id}`}>
-    <FontInformation>
-      <FontName>{font.fontName}</FontName>
-      <CaretRightIcon />
-    </FontInformation>
+export const FontItemWithoutProfile = ({ font }) => {
+  const { id, name, example, isBookmarked } = font
 
-    <PreviewText>{font.preview}</PreviewText>
+  return (
+    <LinkContainer to={`/detail/${id}`}>
+      <FontInformation>
+        <FontName>{name}</FontName>
+        <CaretRightIcon />
+      </FontInformation>
 
-    <ActionButtonGroup>
-      <DownloadButton />
-      <BookmarkButton initialBookmarkState={font.isBookmarked} />
-    </ActionButtonGroup>
-  </LinkContainer>
-)
+      <PreviewText>{example}</PreviewText>
+
+      <ActionButtonGroup>
+        <DownloadButton />
+        <BookmarkButton initialBookmarkState={isBookmarked} />
+      </ActionButtonGroup>
+    </LinkContainer>
+  )
+}
 
 const LinkContainer = styled(Link)`
   ${({ theme }) => `

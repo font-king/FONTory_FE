@@ -13,7 +13,11 @@ export const FontDetail = () => {
   const isMyFont = false
   const { id } = useParams()
 
-  const { data: font } = useFetchFontDetail(id)
+  const queries = useFetchFontDetail(id)
+
+  const font = queries[0].data
+  const recommendList = queries[1].data || []
+
   const { name, writerName, example, bookmarkCount, downloadCount } = font
 
   return (
@@ -34,7 +38,7 @@ export const FontDetail = () => {
         ) : (
           <div>
             <Label>제작자의 다른 폰트</Label>
-            <RecommendFontList recommendList={font.recommend} />
+            <RecommendFontList recommendList={recommendList} />
           </div>
         )}
       </BottomContainer>

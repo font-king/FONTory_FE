@@ -28,4 +28,5 @@ const ExploreHeader = styled.div`
     ${theme.margin(0, 0, '2xl')}
     ${theme.border('divider', 'bottom')}
   `}
+  overflow-x: hidden;
 `

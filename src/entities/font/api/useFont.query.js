@@ -24,7 +24,7 @@ const ENDPOINTS = {
   },
 
   myCustomFontList: (pageParam, keyword) => {
-    const baseUrl = `/fonts?page=${pageParam}&size=20`
+    const baseUrl = `/fonts/members?page=${pageParam}&size=20`
     const searchParams = new URLSearchParams()
 
     if (keyword) searchParams.append('keyword', keyword)

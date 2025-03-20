@@ -2,12 +2,21 @@ import InfiniteScroll from 'react-infinite-scroller'
 
 import { GridContainer } from '@/app/styles/commonStyle'
 import { useFetchExploreFontList } from '@/entities/font/api/useFont.query'
+import { useActiveFilter } from '@/features/filter/model/fontFilter.store'
+import { useSearchKeyword } from '@/features/search/model/search.store'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
 
 import { FontItemWithProfile } from './item/FontItemWithProfile'
 
 export const ExploreFontList = () => {
-  const { data: fontList, hasNextPage, fetchNextPage } = useFetchExploreFontList()
+  const activeFilter = useActiveFilter()
+  const searchKeyword = useSearchKeyword()
+
+  const {
+    data: fontList,
+    hasNextPage,
+    fetchNextPage,
+  } = useFetchExploreFontList(activeFilter.key, searchKeyword)
 
   if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
 

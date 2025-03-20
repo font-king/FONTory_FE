@@ -1,6 +1,6 @@
 import { createStore, useStore } from 'zustand'
 
-export const FILTER_OPTIONS = ['전체', '조회순', '북마크순']
+import { FILTER_OPTIONS } from '@/entities/font/constant/font.constant'
 
 const initialValues = {
   activeFilter: FILTER_OPTIONS[0],

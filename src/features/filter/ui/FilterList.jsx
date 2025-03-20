@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-import { FILTER_OPTIONS, useActiveFilter, useFilterActions } from '../model/fontFilter.store'
+import { FILTER_OPTIONS } from '@/entities/font/constant/font.constant'
+
+import { useActiveFilter, useFilterActions } from '../model/fontFilter.store'
 
 export const FilterList = () => {
   const activeFilter = useActiveFilter()
@@ -10,11 +12,11 @@ export const FilterList = () => {
     <Container>
       {FILTER_OPTIONS.map((filter) => (
         <FilterItem
-          key={filter}
+          key={filter.key}
           $isActive={filter === activeFilter}
           onClick={() => setActiveFilter(filter)}
         >
-          {filter}
+          {filter.name}
         </FilterItem>
       ))}
     </Container>

@@ -40,11 +40,16 @@ const FontInformation = styled.div`
 
 const FontName = styled.h6`
   ${({ theme }) => theme.font(400)};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `
 
 const PreviewText = styled.p`
   ${({ theme }) => theme.font(700, theme.colors.grey[600])};
   flex-grow: 1;
+  overflow: hidden;
+  word-wrap: break-word;
 `
 
 const ActionButtonGroup = styled.div`

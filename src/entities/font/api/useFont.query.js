@@ -6,7 +6,7 @@ export const fontQueryKeys = {
   all: ['fonts'],
   detail: (fontId) => [...fontQueryKeys.all, 'detail', fontId],
   recommendList: (fontId) => [...fontQueryKeys.all, 'recommend', fontId],
-  exploreList: () => [...fontQueryKeys.all, 'explore'],
+  exploreList: (sortBy, keyword) => [...fontQueryKeys.all, 'explore', sortBy, keyword],
 }
 
 const ENDPOINTS = {
@@ -18,13 +18,15 @@ const ENDPOINTS = {
     if (keyword) searchParams.append('keyword', keyword)
 
     const queryString = searchParams.toString()
+    console.log(queryString)
+
     return queryString ? `${baseUrl}&${queryString}` : baseUrl
   },
 }
 
 export const useFetchExploreFontList = (sortBy, keyword) =>
   useSuspenseInfiniteQuery({
-    queryKey: fontQueryKeys.exploreList(),
+    queryKey: fontQueryKeys.exploreList(sortBy, keyword),
     queryFn: ({ pageParam = 0 }) => instance.get(ENDPOINTS.exploreList(pageParam, sortBy, keyword)),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),

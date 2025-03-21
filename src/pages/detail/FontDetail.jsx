@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { useFetchFontDetail } from '@/entities/font/api/useFont.query'
+import { useFontDetail } from '@/entities/font/hook/useFontDetail'
+import { useIsMyFont } from '@/entities/font/model/fontDetail.store'
 import { FontDeleteButton } from '@/features/delete-font/ui/FontDeleteButton'
 import { FontEditButton } from '@/features/edit-font/ui/FontEditButton'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
@@ -10,13 +10,9 @@ import { FontDetailHeader } from '@/widgets/header/FontDetailHeader'
 import { FontDetailContent } from '@/widgets/section/FontDetailContent'
 
 export const FontDetail = () => {
-  const isMyFont = false
-  const { id } = useParams()
+  const isMyFont = useIsMyFont()
 
-  const queries = useFetchFontDetail(id)
-
-  const font = queries[0].data
-  const recommendList = queries[1].data || []
+  const { font, recommendList } = useFontDetail()
 
   const { name, writerName, example, bookmarkCount, downloadCount } = font
 

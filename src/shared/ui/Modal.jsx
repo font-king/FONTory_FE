@@ -1,8 +1,6 @@
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
-import { useIsModalOpen, useModalActions } from '@/shared/model/modal.store'
-
 const ModalPortal = ({ children }) => {
   const modalRoot = document.getElementById('modal')
   if (!modalRoot) return null
@@ -10,10 +8,7 @@ const ModalPortal = ({ children }) => {
   return ReactDOM.createPortal(children, modalRoot)
 }
 
-export const Modal = ({ onSubmit, title, children }) => {
-  const isModalOpen = useIsModalOpen()
-  const { closeModal } = useModalActions()
-
+export const Modal = ({ isModalOpen, closeModal, onSubmit, title, children }) => {
   if (!isModalOpen) return null
 
   return (
@@ -22,7 +17,9 @@ export const Modal = ({ onSubmit, title, children }) => {
         <ModalBackdrop onClick={closeModal} aria-label="모달 닫기" />
         <ModalContent onSubmit={onSubmit}>
           <Header>
-            <button type="button">취소</button>
+            <button type="button" onClick={closeModal}>
+              취소
+            </button>
             <h5>{title}</h5>
             <button type="submit">완료</button>
           </Header>

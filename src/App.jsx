@@ -1,6 +1,8 @@
 import { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { Link } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import { Bounce } from 'react-toastify'
 import styled from 'styled-components'
 
 import { RouterComponent } from './app/router/RouterComponent'
@@ -9,27 +11,40 @@ import { ErrorFallback } from './shared/ui/ErrorFallback'
 import { Loading } from './shared/ui/Loading'
 import { SideNavigationBar } from './shared/ui/SideNavigationBar'
 
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
   return (
-    <Container>
-      <Header>
-        <h1 className="logo">
-          <Link to={`/`}>FonTory</Link>
-        </h1>
-      </Header>
+    <>
+      <ToastContainer
+        position="top-right"
+        closeButton
+        autoClose={2000}
+        closeOnClick
+        pauseOnHover
+        transition={Bounce}
+      />
 
-      <Main>
-        <SideNavigationBar />
+      <Container>
+        <Header>
+          <h1 className="logo">
+            <Link to={`/`}>FonTory</Link>
+          </h1>
+        </Header>
 
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Suspense fallback={<Loading />}>
-            <RouterComponent />
-          </Suspense>
-        </ErrorBoundary>
+        <Main>
+          <SideNavigationBar />
 
-        <div>3</div>
-      </Main>
-    </Container>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback={<Loading />}>
+              <RouterComponent />
+            </Suspense>
+          </ErrorBoundary>
+
+          <div>3</div>
+        </Main>
+      </Container>
+    </>
   )
 }
 

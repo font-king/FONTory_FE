@@ -24,7 +24,6 @@ const InputContainer = styled.input`
     ${theme.borderRadius('sm')}
     ${theme.font(500, theme.colors.grey[700])}
   `}
-  width: 100%;
 `
 
 const TextAreaContainer = styled.textarea`
@@ -34,6 +33,6 @@ const TextAreaContainer = styled.textarea`
     ${theme.borderRadius('sm')}
     ${theme.font(500, theme.colors.grey[700])}
   `}
-  width: 100%;
+  resize: none;
   min-height: 11.8rem;
 `

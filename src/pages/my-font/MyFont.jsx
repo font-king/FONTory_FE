@@ -1,9 +1,12 @@
 import { ColumnSectionContainer } from '@/app/styles/commonStyle'
+import { useFetchMyFontRanking } from '@/entities/font/api/useFont.query'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 import { FontRankingChart } from '@/widgets/chart/ui/FontRankingChart'
 import { CustomFontList } from '@/widgets/font-list/CustomFontList'
 
 export const MyFont = () => {
+  const { data: fonts } = useFetchMyFontRanking()
+
   return (
     <ColumnSectionContainer>
       <SectionLayout>
@@ -14,7 +17,7 @@ export const MyFont = () => {
           </SectionLayout.SubTitle>
         </SectionLayout.TitleContainer>
 
-        <FontRankingChart />
+        <FontRankingChart fonts={fonts} />
       </SectionLayout>
 
       <SectionLayout>
@@ -25,7 +28,7 @@ export const MyFont = () => {
           </SectionLayout.MoreViewButton>
         </SectionLayout.MoreViewContainer>
 
-        <CustomFontList />
+        <CustomFontList fonts={fonts} />
       </SectionLayout>
     </ColumnSectionContainer>
   )

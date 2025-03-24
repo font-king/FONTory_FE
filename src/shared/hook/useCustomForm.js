@@ -1,14 +1,12 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { fontEditSchema } from '../lib/schema'
-
-export const useFontEditForm = ({ defaultValues }) => {
+export const useCustomForm = (schema, options = {}) => {
   const formMethod = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
-    resolver: zodResolver(fontEditSchema),
-    defaultValues,
+    resolver: zodResolver(schema),
+    ...options,
   })
 
   return formMethod

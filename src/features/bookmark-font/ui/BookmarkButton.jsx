@@ -20,7 +20,7 @@ export const BookmarkButton = ({ isButtonType = false, initialBookmarkState }) =
   }
   return (
     <button type="button" onClick={handleBookmark}>
-      {isBookmarked ? <FilledBookmarkIcon /> : <UnfilledBookmarkIcon />}
+      {isBookmarked ? <UnfilledBookmarkIcon /> : <FilledBookmarkIcon />}
     </button>
   )
 }

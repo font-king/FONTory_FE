@@ -12,7 +12,8 @@ export const fontQueryKeys = {
   recommendList: (fontId) => [...fontQueryKeys.all, 'recommend', fontId],
   exploreList: (sortBy, keyword) => [...fontQueryKeys.all, 'explore', sortBy, keyword],
   myCustomFontList: (keyword) => [...fontQueryKeys.all, 'my-custom-font', keyword],
-  myFontRanking: () => [...fontQueryKeys.all, 'popular'],
+  myFontRanking: () => [...fontQueryKeys.all, 'ranking'],
+  popularFontList: () => [...fontQueryKeys.all, 'popular'],
 }
 
 const ENDPOINTS = {
@@ -80,4 +81,10 @@ export const useFetchMyFontRanking = () =>
   useSuspenseQuery({
     queryKey: fontQueryKeys.myFontRanking(),
     queryFn: () => instance.get('/fonts/members/popular'),
+  })
+
+export const useFetchPopularFontList = () =>
+  useSuspenseQuery({
+    queryKey: fontQueryKeys.popularFontList(),
+    queryFn: () => instance.get('/fonts/popular'),
   })

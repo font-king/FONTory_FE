@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const BarChart = ({ chartData }) => {
-  const maxValue = Math.max(...chartData.flatMap((item) => [item.bookmark, item.download]))
+  const maxValue = Math.max(
+    ...chartData.flatMap((item) => [item.bookmarkCount, item.downloadCount]),
+    4,
+  )
   const gridValues = Array.from({ length: 4 }, (_, i) => Math.round(maxValue * (1 - i / 4)))
 
   return (
@@ -15,16 +18,16 @@ export const BarChart = ({ chartData }) => {
           ))}
         </GridLines>
         <BarsContainer>
-          {chartData.map((item) => (
-            <BarGroup key={item.name}>
+          {chartData.map(({ name, bookmarkCount, downloadCount }) => (
+            <BarGroup key={name}>
               <StatBar
-                value={(item.bookmark / maxValue) * 100}
+                value={(bookmarkCount / maxValue) * 100}
                 $isBookmark
-                data-value={`북마크: ${item.bookmark}`}
+                data-value={`북마크: ${bookmarkCount}`}
               />
               <StatBar
-                value={(item.download / maxValue) * 100}
-                data-value={`다운로드: ${item.download}`}
+                value={(downloadCount / maxValue) * 100}
+                data-value={`다운로드: ${downloadCount}`}
               />
             </BarGroup>
           ))}

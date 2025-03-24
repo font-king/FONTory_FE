@@ -1,4 +1,8 @@
-import { useSuspenseInfiniteQuery, useSuspenseQueries } from '@tanstack/react-query'
+import {
+  useSuspenseInfiniteQuery,
+  useSuspenseQueries,
+  useSuspenseQuery,
+} from '@tanstack/react-query'
 
 import { instance } from '@/app/api'
 
@@ -8,6 +12,7 @@ export const fontQueryKeys = {
   recommendList: (fontId) => [...fontQueryKeys.all, 'recommend', fontId],
   exploreList: (sortBy, keyword) => [...fontQueryKeys.all, 'explore', sortBy, keyword],
   myCustomFontList: (keyword) => [...fontQueryKeys.all, 'my-custom-font', keyword],
+  myFontRanking: () => [...fontQueryKeys.all, 'popular'],
 }
 
 const ENDPOINTS = {
@@ -69,4 +74,10 @@ export const useFetchFontDetail = (fontId) =>
         queryFn: () => instance.get(`/fonts/${fontId}/others`),
       },
     ],
+  })
+
+export const useFetchMyFontRanking = () =>
+  useSuspenseQuery({
+    queryKey: fontQueryKeys.myFontRanking(),
+    queryFn: () => instance.get('/fonts/members/popular'),
   })

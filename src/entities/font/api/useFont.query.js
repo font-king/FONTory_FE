@@ -11,6 +11,7 @@ export const fontQueryKeys = {
   detail: (fontId) => [...fontQueryKeys.all, 'detail', fontId],
   recommendList: (fontId) => [...fontQueryKeys.all, 'recommend', fontId],
   exploreList: (sortBy, keyword) => [...fontQueryKeys.all, 'explore', sortBy, keyword],
+  bookmarkList: (keyword) => [...fontQueryKeys.all, 'bookmark', keyword],
   myCustomFontList: (keyword) => [...fontQueryKeys.all, 'my-custom-font', keyword],
   myFontRanking: () => [...fontQueryKeys.all, 'ranking'],
   popularFontList: () => [...fontQueryKeys.all, 'popular'],
@@ -29,6 +30,11 @@ const ENDPOINTS = {
     return queryString ? `${baseUrl}&${queryString}` : baseUrl
   },
 
+  bookmarkList: (pageParam, keyword) => {
+    const baseUrl = `/bookmarks?page=${pageParam}&size=20`
+    return keyword ? `${baseUrl}&keyword=${keyword}` : baseUrl
+  },
+
   myCustomFontList: (pageParam, keyword) => {
     const baseUrl = `/fonts/members?page=${pageParam}&size=20`
     const searchParams = new URLSearchParams()
@@ -45,6 +51,17 @@ export const useFetchExploreFontList = (sortBy, keyword) =>
   useSuspenseInfiniteQuery({
     queryKey: fontQueryKeys.exploreList(sortBy, keyword),
     queryFn: ({ pageParam = 0 }) => instance.get(ENDPOINTS.exploreList(pageParam, sortBy, keyword)),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
+    gcTime: 0,
+    staleTime: 0,
+    select: (data) => data.pages.flatMap((arr) => arr.content) || [],
+  })
+
+export const useFetchBookmarkFontList = (keyword) =>
+  useSuspenseInfiniteQuery({
+    queryKey: fontQueryKeys.bookmarkList(keyword),
+    queryFn: ({ pageParam = 0 }) => instance.get(ENDPOINTS.bookmarkList(pageParam, keyword)),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
     gcTime: 0,

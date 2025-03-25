@@ -12,7 +12,7 @@ export const FontItemWithProfile = ({ font }) => (
 
     <ActionButtonGroup>
       <DownloadButton />
-      <BookmarkButton initialBookmarkState={font.bookmarked} />
+      <BookmarkButton fontId={font.id} isBookmarked={font.bookmarked} />
     </ActionButtonGroup>
   </LinkContainer>
 )

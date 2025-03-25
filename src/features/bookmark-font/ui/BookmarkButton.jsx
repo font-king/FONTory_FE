@@ -1,15 +1,10 @@
-import { useToggle } from '@/shared/hook/useToggle'
 import { Button } from '@/shared/ui/Button'
 import { FilledBookmarkIcon, UnfilledBookmarkIcon } from '@/shared/ui/icons/NonPropIcons'
 
-export const BookmarkButton = ({ isButtonType = false, initialBookmarkState }) => {
-  const [isBookmarked, toggleBookmark] = useToggle(initialBookmarkState)
+import { useBookmark } from '../hook/useBookmark'
 
-  const handleBookmark = (event) => {
-    event.stopPropagation()
-    event.preventDefault()
-    toggleBookmark()
-  }
+export const BookmarkButton = ({ fontId, isButtonType = false, isBookmarked }) => {
+  const { handleBookmark } = useBookmark(fontId, isBookmarked)
 
   if (isButtonType) {
     return (
@@ -18,6 +13,7 @@ export const BookmarkButton = ({ isButtonType = false, initialBookmarkState }) =
       </Button>
     )
   }
+
   return (
     <button type="button" onClick={handleBookmark}>
       {isBookmarked ? <UnfilledBookmarkIcon /> : <FilledBookmarkIcon />}
